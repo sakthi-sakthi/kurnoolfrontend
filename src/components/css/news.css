@@ -1,0 +1,24 @@
+.card-01 {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card-img-top {
+    height: 230px;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    height: 50px;
+    overflow: hidden;
+  }
+  
+  .card-text {
+    flex-grow: 1;
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
