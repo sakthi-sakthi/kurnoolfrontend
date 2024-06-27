@@ -11,7 +11,7 @@ const HomeSections = () => {
                     <div className="row"> 
                         <div className="col-lg-3 col-md-6 mb-25">
                             <div className="services-wrap">
-                                <a href="javascript:void(0);">
+                                <a href="/">
                                     <img src="images/all-img/3.png" alt="" />
                                 </a>
                                 <div className="services-txt">
@@ -24,7 +24,7 @@ const HomeSections = () => {
                         </div>
                         <div className="col-lg-3 col-md-6 sm-mb-25">
                             <div className="services-wrap">
-                                <a href="javascript:void(0);">
+                                <a href="/">
                                     <img src="images/all-img/shrine.webp" alt="" style={{height:"150px"}} />
                                 </a>
                                 <div className="services-txt">
@@ -37,7 +37,7 @@ const HomeSections = () => {
                         </div>
                         <div className="col-lg-3 col-md-6">
                             <div className="services-wrap">
-                                <a href="javascript:void(0);">
+                                <a href="/">
                                     <img src="images/all-img/6.png" alt="" />
                                 </a>
                                 <div className="services-txt">
@@ -50,7 +50,7 @@ const HomeSections = () => {
                         </div>
                         <div className="col-lg-3 col-md-6 mb-25">
                             <div className="services-wrap">
-                                <a href="javascript:void(0);">
+                                <a href="/">
                                     <img src="images/all-img/donate.webp" alt="" style={{height:"150px"}} />
                                 </a>
                                 <div className="services-txt">

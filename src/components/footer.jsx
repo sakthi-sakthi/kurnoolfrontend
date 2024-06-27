@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { ApiUrl } from "./API/Api";
+import React from "react";
 
 function Footer({footerdata}) {
   const currentYear = new Date().getFullYear();
@@ -116,7 +114,7 @@ function Footer({footerdata}) {
                       </li>
                       <li>
                         <a
-                          href=""
+                          href="/"
                           target="_blank"
                           rel="noreferrer"
                         >
@@ -124,7 +122,7 @@ function Footer({footerdata}) {
                         </a>
                         &nbsp;
                         <a
-                          href=""
+                          href="/"
                           target="_blank"
                           rel="noreferrer"
                         >
@@ -132,7 +130,7 @@ function Footer({footerdata}) {
                         </a>
                         &nbsp;
                         <a
-                          href=""
+                          href="/"
                           target="_blank"
                           rel="noreferrer"
                         >

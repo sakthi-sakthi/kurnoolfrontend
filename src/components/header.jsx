@@ -101,7 +101,7 @@ function Header() {
                 <div className="social-icons">
                   <div className="social-icon">
                     <a
-                      href=""
+                      href="/"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -110,7 +110,7 @@ function Header() {
                   </div>
                   <div className="social-icon">
                     <a
-                      href=""
+                      href="/"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -119,7 +119,7 @@ function Header() {
                   </div>
                   <div className="social-icon">
                     <a
-                      href=""
+                      href="/"
                       target="_blank"
                       rel="noreferrer"
                     >

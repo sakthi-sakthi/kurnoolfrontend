@@ -34,7 +34,7 @@ const LatestNews = ({ projectdata }) => {
                   <img
                     className="card-img-top"
                     src={newsItem?.media_url || "images/all-img/noimage.jpg"}
-                    alt="Card image cap"
+                    alt="No Data"
                   />
                   <div className="card-body">
                     <span className="badge-box">
@@ -46,7 +46,7 @@ const LatestNews = ({ projectdata }) => {
                     <br />
                     <h4 className="card-title">{newsItem?.title || "Title not available"}</h4>
                     <p className="card-text">
-                      <img src='/images/all-img/tick.png' alt="Card image cap" width="20px" height="20px" />{newsItem?.content?.split(' ').slice(0, 10).join(' ').concat(newsItem?.content?.split(' ').length > 100 ? '...' : '')}
+                      <img src='/images/all-img/tick.png' alt="No Data" width="20px" height="20px" />{newsItem?.content?.split(' ').slice(0, 10).join(' ').concat(newsItem?.content?.split(' ').length > 100 ? '...' : '')}
                     </p>
                     <Link to="/" className="btn btn-primary" id='btnmore'>
                       More Information
