@@ -37,19 +37,15 @@ const LatestNews = ({ projectdata }) => {
                     alt="No Data"
                   />
                   <div className="card-body">
-                    <span className="badge-box">
-                      <i className="fa fa-newspaper-o" />
-                    </span>
                     <i className="fa fa-calendar mr-1 fa-1x" /> {newsItem?.eventdate || "Date not available"}
-                    <i className="fa fa-user ml-3 mr-1 fa-1x" /> {newsItem?.author || "Admin"}
                     <br />
                     <br />
-                    <h4 className="card-title">{newsItem?.title || "Title not available"}</h4>
+                    <h4 className="card-title"><Link to="/">{newsItem?.title || "Title not available"}</Link></h4>
                     <p className="card-text">
-                      <img src='/images/all-img/tick.png' alt="No Data" width="20px" height="20px" />{newsItem?.content?.split(' ').slice(0, 10).join(' ').concat(newsItem?.content?.split(' ').length > 100 ? '...' : '')}
+                      {newsItem?.content?.split(' ').slice(0, 10).join(' ').concat(newsItem?.content?.split(' ').length > 100 ? '...' : '')}
                     </p>
                     <Link to="/" className="btn btn-primary" id='btnmore'>
-                      More Information
+                      View More
                     </Link>
                   </div>
                 </div>

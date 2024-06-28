@@ -99,7 +99,7 @@
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media (min-width: 1201px) {
     .swiper {
-        max-height: 620px;
+        max-height: 500px;
     }
   }
   

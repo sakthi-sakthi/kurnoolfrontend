@@ -16,9 +16,11 @@
   }
   
   .card-title {
-    font-size: 1.25rem;
     height: 50px;
     overflow: hidden;
+    font-size: 15px;
+    text-overflow: ellipsis;
+    text-decoration: none !important;
   }
   
   .card-text {
@@ -26,5 +28,6 @@
     height: 50px;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 15px;
   }
   

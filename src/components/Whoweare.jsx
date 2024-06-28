@@ -29,7 +29,7 @@ const Whoweare = () => {
                                             role="tab"
                                             data-toggle="tab"
                                         >
-                                            <p className="hidden-xs">Bishop Profile <i className="fa fa-user"></i></p>
+                                            <p className="hidden-xs">Bishop Profile</p>
                                         </a>
                                     </li>
                                     <li role="presentation" className={`category-link ${activeTab === 'history1' ? 'active' : ''}`}>
@@ -41,7 +41,7 @@ const Whoweare = () => {
                                             role="tab"
                                             data-toggle="tab"
                                         >
-                                            <p className="hidden-xs text-black">History <i className="fa fa-history"></i></p>
+                                            <p className="hidden-xs text-black">History</p>
                                         </a>
                                     </li>
                                     <li role="presentation" className={`category-link ${activeTab === 'mission2' ? 'active' : ''}`}>
@@ -53,7 +53,7 @@ const Whoweare = () => {
                                             role="tab"
                                             data-toggle="tab"
                                         >
-                                            <p className="hidden-xs text-black">Mission <i className="fa fa-bullseye"></i></p>
+                                            <p className="hidden-xs text-black">Mission</p>
                                         </a>
                                     </li>
                                     <li role="presentation" className={`category-link ${activeTab === 'vision3' ? 'active' : ''}`}>
@@ -65,7 +65,7 @@ const Whoweare = () => {
                                             role="tab"
                                             data-toggle="tab"
                                         >
-                                            <p className="hidden-xs text-black">Vision <i className="fa fa-eye"></i></p>
+                                            <p className="hidden-xs text-black">Vision</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -166,7 +166,7 @@ const Whoweare = () => {
                                                     <div className="row">
                                                         <div className="col-12">
                                                             <button className="btn btn-primary" id='btnmore'>
-                                                                Learn More
+                                                                View More
                                                             </button>
                                                         </div>
                                                     </div>

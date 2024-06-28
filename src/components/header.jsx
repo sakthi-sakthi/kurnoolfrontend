@@ -78,12 +78,12 @@ function Header() {
                     className="fa fa-envelope"
                     style={{ color: "#f6c93f" }}
                   ></i>
-                  <a href="mailto: bpanthony@gmail.com">
+                  <a href="mailto:bpjohannesocd@gmail.com">
                     <span
                       className="__cf_email__"
                       style={{ marginLeft: "0.5rem" }}
                     >
-                      bpanthony@gmail.com
+                      bpjohannesocd@gmail.com
                     </span>
                   </a>
                 </div>
@@ -212,7 +212,7 @@ function Header() {
           className={`offcanvas offcanvas-start ${isMobileMenuOpen ? "show" : " "
             }`}
           tabIndex="-1"
-          data-bs-backdrop={false} 
+          data-bs-backdrop={false}
           id="offcanvasExample"
           aria-labelledby="offcanvasExampleLabel"
         >

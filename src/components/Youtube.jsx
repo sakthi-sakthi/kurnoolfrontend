@@ -48,7 +48,6 @@ const Youtube = ({ gallerydata }) => {
               <video
                 controls
                 playsInline
-                autoPlay
                 loop
                 id="video"
                 preload="metadata"

@@ -761,7 +761,6 @@ a:active {
 .welcome-content .entry-title {
   position: relative;
   padding-bottom: 24px;
-  font-size: 46px;
   font-weight: 600;
   color: #0d4571;
   text-align: center;
@@ -790,7 +789,7 @@ a:active {
 }
 
 .welcome-content .entry-content {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 2;
   color: #262626;
   font-family: unset;
@@ -4441,9 +4440,6 @@ li ul {
 .rs-services.style16 .services-wrap {
   margin: 10px 10px 10px 10px;
   transition: background 0.6s;
-  border-style: solid;
-  border-width: 3px 3px 3px 3px;
-  border-color: #02c386;
   border-radius: 50px 3px 50px 3px;
   padding: 20px 20px 20px 20px;
   transition: all ease .3s;
@@ -4464,7 +4460,6 @@ li ul {
   font-weight: 600;
 }
 .rs-services.style16 .services-wrap:hover {
-  background: url(images/all-img/download.svg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
