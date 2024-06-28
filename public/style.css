@@ -2458,7 +2458,7 @@ div.main-tile-text h2 {
   color: white !important;
   letter-spacing: 1px;
   font-weight: 500;
-  font-size: 14.5px;
+  font-size: 14px;
   text-decoration: none;
 }
 
@@ -3125,6 +3125,25 @@ div.main-tile-text h2 {
   border-radius: 4px;
 }
 
+@media (max-width: 600px) {
+  .label {
+    float: none;
+    display: block;
+    margin: 5px auto;
+    padding: 5px 5px;
+    font-size: 14px !important;
+    height: 50px;
+    text-align: center;
+    background: #d6002a;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+    margin-top: 2px;
+    border-radius: 4px;
+  }
+}
+
 .ripple {
   position: relative;
   overflow: hidden;
@@ -3281,9 +3300,6 @@ div.main-tile-text h2 {
 @media (max-width: 768px) {
   .welcome-content .entry-title {
     font-size: 30px;
-    /* Adjust font size for smaller screens */
-    padding-bottom: 16px;
-    /* Adjust padding */
   }
 }
 

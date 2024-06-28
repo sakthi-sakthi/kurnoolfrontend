@@ -54,7 +54,7 @@ const Youtube = ({gallerydata}) => {
                 className="video"
               >
                 <source
-                  src="http://kurnooldiocese.in/video/kurnool_19.mp4"
+                  src="videos/kurnool.mp4"
                   type="video/mp4"
                   id="video-source"
                 />

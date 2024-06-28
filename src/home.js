@@ -56,7 +56,7 @@ function Home() {
 
       {!isLoading && (
         <>
-          <Header menudata={homedata?.headerdata} footerdata={homedata?.someotherdata} />
+          <Header menudata={homedata?.headerdata} />
           <Slider sliderdata={homedata?.sliderdata} />
           <Scrollbar projectdata={homedata?.newsdata}/>
           <About />

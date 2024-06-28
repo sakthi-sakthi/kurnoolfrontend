@@ -13,14 +13,8 @@ const MainLayout = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const storedData = localStorage.getItem("HomeData");
-        if (storedData) {
-          setHomedata(JSON.parse(storedData));
-        } else {
-          const response = await axios.get(`${ApiUrl}/get/homepagee/sections`);
-          localStorage.setItem("HomeData", JSON.stringify(response?.data?.data));
-          setHomedata(response?.data?.data);
-        }
+        const response = await axios.get(`${ApiUrl}/get/homepagee/sections`);
+        setHomedata(response?.data?.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -55,13 +49,14 @@ const MainLayout = () => {
 
   return (
     <>
-      <Header menudata={Homedata?.headermenudata} />
+      <Header menudata={Homedata?.headerdata} />
       <div style={{ minHeight: "66.5vh", padding: "10px" }}>
         <Outlet />
       </div>
-      <Footer />
+      <Footer footerdata={Homedata?.footerdata} />
     </>
   );
 };
 
 export default MainLayout;
+

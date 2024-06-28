@@ -31,11 +31,14 @@ ul li a {
 }
 
 @media (max-width: 768px) {
+
   ul li a:hover,
   ul li a:active,
   ul li:active,
   .mobileview ul li:active {
     background: #e0ab08;
+    width: 16rem !important;
+    height: 38px;
   }
 }
 
@@ -101,6 +104,8 @@ ul:after {
 
 .mobileview ul li a:active {
   background: #e0ab08;
+  width: 16rem !important;
+  height: 38px;
 }
 
 /* news card design */
@@ -155,7 +160,7 @@ ul:after {
 #btnmore {
   background-color: #02c386 !important;
   border: none;
-  animation:step-start 1s infinite;
+  animation: step-start 1s infinite;
   font-size: 14px;
   font-weight: 600;
   padding: 10px 20px;
@@ -165,5 +170,5 @@ ul:after {
 #btnmore:hover {
   background-color: #e0ab08 !important;
   border: none;
-  animation:step-start 1s infinite;
+  animation: step-start 1s infinite;
 }

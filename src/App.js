@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import MainLayout from "./layout";
 import Home from "./home";
-import Contact from "./pages/Contact/Contact";
+import BriefHistory from "./pages/AboutUs/BriefHistory";
 
 
 
@@ -11,10 +11,10 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/*" element={<MainLayout />}>
-         
-          <Route path="contactus" element={<Contact />} />
-        </Route>
+          <Route path="/*" element={<MainLayout />}>
+          {/* About Us Page Routing */}
+            <Route path="history" element={<BriefHistory />} />
+          </Route>
       </Routes>
     </>
   );

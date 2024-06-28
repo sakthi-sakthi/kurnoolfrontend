@@ -96,20 +96,20 @@ function Footer({footerdata}) {
                               textAlign: "left",
                             }}
                           >
-                            {footerdata.address}
+                            {footerdata?.address}
                           </p>
                         </span>
                       </li>
                       <li>
                         <i className="fa fa-phone mr-2" />
-                        <Link to={`tel:${footerdata.mobile}`}>
-                          {footerdata.mobile}
+                        <Link to={`tel:${footerdata?.mobile}`}>
+                          {footerdata?.mobile}
                         </Link>
                       </li>
                       <li>
                         <i className="fa fa-envelope mr-2" />
-                        <Link to={`mailto:${footerdata.email}`}>
-                          {footerdata.email}
+                        <Link to={`mailto:${footerdata?.email}`}>
+                          {footerdata?.email}
                         </Link>
                       </li>
                       <li>
@@ -151,7 +151,7 @@ function Footer({footerdata}) {
                     <h2 className="entry-title">Location</h2>
                   </div>
                   <iframe
-                    src={footerdata.googleMapsUrl}
+                    src={footerdata?.googleMapsUrl}
                     width="300"
                     height="200"
                     allowFullScreen=""

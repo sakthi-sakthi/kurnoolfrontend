@@ -195,7 +195,7 @@ function Header() {
       {/* Mobile View */}
       <div
         className="d-block d-lg-none "
-        style={{ backgroundColor: "#012c6d" }}
+        style={{ backgroundColor: "rgb(13 69 113)" }}
       >
         <button
           className="btn btn-success"
@@ -212,13 +212,13 @@ function Header() {
           className={`offcanvas offcanvas-start ${isMobileMenuOpen ? "show" : " "
             }`}
           tabIndex="-1"
-          data-bs-backdrop={false} // Toggle backdrop based on state
+          data-bs-backdrop={false} 
           id="offcanvasExample"
           aria-labelledby="offcanvasExampleLabel"
         >
           <div className="offcanvas-header">
             <h5 className="offcanvas-title" id="offcanvasExampleLabel">
-              Diocese of Sultanpet
+              Diocese of Kurnool
             </h5>
             <button
               type="button"

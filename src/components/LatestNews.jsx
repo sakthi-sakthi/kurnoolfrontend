@@ -8,7 +8,7 @@ const LatestNews = ({ projectdata }) => {
 
   useEffect(() => {
     if (projectdata) {
-      const news = projectdata?.filter(item => item?.category_id === 1).slice(0, 4) || [];
+      const news = projectdata?.filter(item => item?.category_id === 1).slice(0, 3) || [];
       setLatestNews(news);
       setLoading(false);
     }

@@ -11,7 +11,7 @@ const Whoweare = () => {
 
     return (
         <>
-            <div className="vh-section-outer mt-5" style={{ backgroundImage: "url('images/all-img/download.svg')" }}>
+            <div className="vh-section-outer mt-5 section-bg" id="whoweare" style={{backgroundImage: 'url("images/all-img/download.svg")'}}>
                 <div className="section-inner">
                     <div className="container">
                         <div className="section-heading">
@@ -20,9 +20,9 @@ const Whoweare = () => {
                         <div className="row">
                             <div className="tabSection">
                                 <ul className="nav nav-pills" role="tablist">
-                                <li role="presentation" className={`category-link ${activeTab === 'bishop4' ? 'active' : ''}`}>
+                                    <li role="presentation" className={`category-link ${activeTab === 'bishop4' ? 'active' : ''}`}>
                                         <a
-                                            href="#bishop4"
+                                            href="/"
                                             onClick={() => handleTabClick('bishop4')}
                                             data-bs-target="#bishop4"
                                             aria-controls="bishop4"
@@ -34,7 +34,7 @@ const Whoweare = () => {
                                     </li>
                                     <li role="presentation" className={`category-link ${activeTab === 'history1' ? 'active' : ''}`}>
                                         <a
-                                            href="#history1"
+                                            href="/"
                                             onClick={() => handleTabClick('history1')}
                                             data-bs-target="#history1"
                                             aria-controls="history1"
@@ -46,7 +46,7 @@ const Whoweare = () => {
                                     </li>
                                     <li role="presentation" className={`category-link ${activeTab === 'mission2' ? 'active' : ''}`}>
                                         <a
-                                            href="#mission2"
+                                            href="/"
                                             onClick={() => handleTabClick('mission2')}
                                             data-bs-target="#mission2"
                                             aria-controls="mission2"
@@ -58,7 +58,7 @@ const Whoweare = () => {
                                     </li>
                                     <li role="presentation" className={`category-link ${activeTab === 'vision3' ? 'active' : ''}`}>
                                         <a
-                                            href="#vision3"
+                                            href="/"
                                             onClick={() => handleTabClick('vision3')}
                                             data-bs-target="#vision3"
                                             aria-controls="vision3"
@@ -72,7 +72,7 @@ const Whoweare = () => {
                                 <div className="tab-content">
                                     {activeTab === 'history1' && (
                                         <div id="history1" className="tab-pane active">
-                                            <h3>History of the Diocese :</h3>
+                                            <h4>History of the Diocese :</h4>
                                             <div className="row">
                                                 <div className="col-lg-3">
                                                     <img src="images/all-img/madha.png" style={{ width: '100%', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', borderRadius: '10px', padding: '10px' }} alt="" className="img-responsive" />
@@ -91,7 +91,7 @@ const Whoweare = () => {
                                     )}
                                     {activeTab === 'mission2' && (
                                         <div id="mission2" className="tab-pane active">
-                                            <h3>Our Mission :</h3>
+                                            <h4>Our Mission :</h4>
                                             <div className="row">
                                                 <div className="col-lg-3">
                                                     <img src="images/all-img/5.png" alt="" className="img-fluid" />
@@ -104,7 +104,7 @@ const Whoweare = () => {
                                     )}
                                     {activeTab === 'vision3' && (
                                         <div id="vision3" className="tab-pane active">
-                                            <h3>Our Vision :</h3>
+                                            <h4>Our Vision :</h4>
                                             <div className="row">
                                                 <div className="col-lg-3">
                                                     <img src="images/all-img/shrine.webp" alt="" className="img-fluid" />
