@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import './css/youtube.css';
 import ImageGallery from "react-image-gallery";
 
-const Youtube = ({gallerydata}) => {
+const Youtube = ({ gallerydata }) => {
   useEffect(() => {
     const video = document.getElementById("video");
     const circlePlayButton = document.getElementById("circle-play-b");
@@ -15,24 +15,26 @@ const Youtube = ({gallerydata}) => {
       }
     }
 
-    circlePlayButton.addEventListener("click", togglePlay);
-    video.addEventListener("playing", () => {
-      circlePlayButton.style.opacity = 0;
-    });
-    video.addEventListener("pause", () => {
-      circlePlayButton.style.opacity = 1;
-    });
-
-    return () => {
-      circlePlayButton.removeEventListener("click", togglePlay);
-      video.removeEventListener("playing", () => {
+    if (circlePlayButton && video) {
+      circlePlayButton.addEventListener("click", togglePlay);
+      video.addEventListener("playing", () => {
         circlePlayButton.style.opacity = 0;
       });
-      video.removeEventListener("pause", () => {
+      video.addEventListener("pause", () => {
         circlePlayButton.style.opacity = 1;
       });
-    };
-  }, []);
+
+      return () => {
+        circlePlayButton.removeEventListener("click", togglePlay);
+        video.removeEventListener("playing", () => {
+          circlePlayButton.style.opacity = 0;
+        });
+        video.removeEventListener("pause", () => {
+          circlePlayButton.style.opacity = 1;
+        });
+      };
+    }
+  }, [gallerydata]);
 
   return (
     <div className="container">
@@ -60,7 +62,11 @@ const Youtube = ({gallerydata}) => {
                 />
               </video>
               <div className="play-button-wrapper">
-                <div title="Play video" className="play-gif" id="circle-play-b">
+                <div
+                  title="Play video"
+                  className="play-gif"
+                  id="circle-play-b"
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
                     <path d="M40 0a40 40 0 1040 40A40 40 0 0040 0zM26 61.56V18.44L64 40z" />
                   </svg>
@@ -74,10 +80,16 @@ const Youtube = ({gallerydata}) => {
             <h2 className="entry-title mt-5">Our Gallery</h2>
           </div>
           <div className="gallery mb-5">
-              <ImageGallery items={gallerydata.map(image => ({
-                original: image.image || '',
-                thumbnail: image.image || ''
-            }))} />
+            {gallerydata && gallerydata.length > 0 ? (
+              <ImageGallery
+                items={gallerydata?.map((image) => ({
+                  original: image.image || "",
+                  thumbnail: image.image || "",
+                }))}
+              />
+            ) : (
+              <div>No gallery data available</div>
+            )}
           </div>
         </div>
       </div>

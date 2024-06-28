@@ -9,6 +9,9 @@ function BriefHistory() {
 
   const path = {
     '/history': 1,
+    '/diocesan-curia': 2,
+    '/aboutus':3,
+    '/college-consult':4 
   };
   const pageId = path[url] ? path[url] : url;
 
@@ -42,10 +45,10 @@ function BriefHistory() {
 
   return (
     <>
-      <div className="container subpage mt-5">
+      <div className="container subpage">
         <div className="row">
           <div className="col-lg-12">
-            <h1>{filteredData[0]?.title}</h1>
+            <h2 className="text-center mb-2">{filteredData[0]?.title}</h2>
             {filteredData?.map((item) => (
               <div key={item.id}>
                 <div

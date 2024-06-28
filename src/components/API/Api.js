@@ -1,5 +1,5 @@
 // For Production API
-export const ApiUrl = "https://cms.kurnooldiocese.org/api";
+export const ApiUrl = "https://app.kurnooldiocese.org/api";
 
 
 // For Development API
