@@ -1,27 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./css/styles.css";
-import { ApiUrl } from "./API/Api";
 
-function Header() {
-  const [menuData, setMenuData] = useState([]);
+function Header({menudata}) {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchMenus = async () => {
-      try {
-        const response = await fetch(`${ApiUrl}/get/menus`);
-        const data = await response.json();
-        setMenuData(data);
-      } catch (error) {
-        console.error("Error fetching menu data:", error);
-      }
-    };
-
-    fetchMenus();
-  }, []);
-
   const toggleMobileMenu = (isOpen) => {
     setMobileMenuOpen(isOpen);
   };
@@ -127,6 +110,9 @@ function Header() {
                     </a>
                   </div>
                 </div>
+                <button className="btn btn-primary btn-sm donate-btn ml-3" id='btnmore'>
+                  <i className="fas fa-donate"></i> Donation
+                </button>
               </div>
             </div>
           </div>
@@ -134,7 +120,7 @@ function Header() {
         <section id="sp-section-3">
           <div className="container-fluid col-xs-12 col-sm-12 col-md-12 p-0">
             <img
-              src="images/all-img/logobanner.jpg"
+              src="images/all-img/updatebanner.jpg"
               alt="Banner"
               className="w-100"
             />
@@ -161,7 +147,7 @@ function Header() {
               id="navbarNav"
             >
               <ul className="main-navigation">
-                {menuData.map((item) => (
+                {menudata?.map((item) => (
                   <li key={item.id}>
                     <NavLink to={item.url}>{item.label}</NavLink>
                     {item.children && (
@@ -230,7 +216,7 @@ function Header() {
           </div>
           <div className="offcanvas-body mobileview">
             <ul className="nav">
-              {menuData.map((item) => (
+              {menudata?.map((item) => (
                 <li
                   key={item.id}
                   className={`nav-item dropdown ${openSubMenu === item.id ? "active" : ""

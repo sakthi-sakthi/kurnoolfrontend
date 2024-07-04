@@ -19,7 +19,7 @@ function About() {
                 </div>
 
                 <center>
-                  <Link to="/">
+                  <Link to="/aboutus">
                     <button className="brown-button">Read More</button>
                   </Link>
                 </center>

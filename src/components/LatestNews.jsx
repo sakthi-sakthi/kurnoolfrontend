@@ -44,7 +44,7 @@ const LatestNews = ({ projectdata }) => {
                     <p className="card-text">
                       {newsItem?.content?.split(' ').slice(0, 10).join(' ').concat(newsItem?.content?.split(' ').length > 100 ? '...' : '')}
                     </p>
-                    <Link to="/" className="btn btn-primary" id='btnmore'>
+                    <Link to={`/all-latest-news?newsid=${encodeURIComponent(btoa(newsItem.id))}`} className="btn btn-primary" id='btnmore'>
                       View More
                     </Link>
                   </div>

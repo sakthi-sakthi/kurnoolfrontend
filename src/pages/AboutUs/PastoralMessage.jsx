@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { ApiUrl } from '../../components/API/Api';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 const MessageContainer = styled.div`
   background-color: #f8f9fa;
@@ -51,7 +53,7 @@ const PastoralMessage = () => {
         display: 'inline-block'
     };
 
-    if (loading) return <div className='text-center mt-5' style={{ fontWeight: "bold", color: "black" }}>Loading...</div>;
+    if (loading) return <div className='text-center mt-5' style={{ fontWeight: "bold", color: "black" }}><FontAwesomeIcon icon={faSpinner} spin size="2x" /></div>;
     if (error) return <div>Error: {error}</div>;
 
     const [latestMessage, ...olderMessages] = messages;

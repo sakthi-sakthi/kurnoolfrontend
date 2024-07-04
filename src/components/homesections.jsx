@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 const HomeSections = () => {
     return (
         <>
@@ -11,53 +11,41 @@ const HomeSections = () => {
                     <div className="row"> 
                         <div className="col-lg-3 col-md-6 mb-25">
                             <div className="services-wrap">
-                                <a href="/">
-                                    <img src="images/all-img/3.png" alt="" />
-                                </a>
+                                    <img src="images/all-img/3.png" alt="nodata" />
                                 <div className="services-txt">
                                     <h4 className="services-title">
-                                        <a href="/">Our Priests</a>
+                                        <Link to="/religious-priest">Our Priests</Link>
                                     </h4>
-                                    <div className="serial-number"><p><i className="fa fa-long-arrow-right"></i> More</p></div>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 sm-mb-25">
                             <div className="services-wrap">
-                                <a href="/">
-                                    <img src="images/all-img/shrine.webp" alt="" style={{height:"150px"}} />
-                                </a>
+                                    <img src="images/all-img/shrine.webp" alt="nodata" style={{height:"150px"}} />
                                 <div className="services-txt">
                                     <h4 className="services-title">
-                                        <a href="/">Our Parishes</a>
+                                        <Link to={"/parishes"}>Our Parishes</Link>
                                     </h4>
-                                    <div className="serial-number"><p><i className="fa fa-long-arrow-right"></i> More</p></div>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6">
                             <div className="services-wrap">
-                                <a href="/">
-                                    <img src="images/all-img/6.png" alt="" />
-                                </a>
+                                    <img src="images/all-img/educational.png" alt="nodata" style={{height:"150px"}} />
                                 <div className="services-txt">
                                     <h4 className="services-title">
-                                        <a href="/">Daily Gospal</a>
+                                        <Link to={'/'}>Educational Apostolate</Link>
                                     </h4>
-                                    <div className="serial-number"><p><i className="fa fa-long-arrow-right"></i> More</p></div>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 mb-25">
                             <div className="services-wrap">
-                                <a href="/">
-                                    <img src="images/all-img/donate.webp" alt="" style={{height:"150px"}} />
-                                </a>
+                                    <img src="images/all-img/social.png" alt="nodata" style={{height:"150px"}} />
                                 <div className="services-txt">
                                     <h4 className="services-title">
-                                        <a href="/">Donate</a>
+                                        <Link to={'/'}>Social Apostolate</Link>
                                     </h4>
-                                    <div className="serial-number"><p><i className="fa fa-long-arrow-right"></i> More</p></div>
                                 </div>
                             </div>
                         </div>

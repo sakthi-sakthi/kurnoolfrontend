@@ -1,0 +1,9 @@
+.news-image {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 10px;
+  }

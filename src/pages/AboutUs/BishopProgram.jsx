@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ApiUrl } from '../../components/API/Api';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 const BishopProgram = () => {
+    const [loading, setLoading] = useState(true);
     const [programs, setPrograms] = useState([]);
     const [selectedProgram, setSelectedProgram] = useState(null);
     const [archivedPrograms, setArchivedPrograms] = useState([]);
@@ -17,11 +20,11 @@ const BishopProgram = () => {
                     const { current, archived } = groupByMonth(data, currentMonth);
                     setPrograms(current);
                     setArchivedPrograms(archived);
-                } else {
-                    console.error('Failed to retrieve data');
                 }
             } catch (error) {
                 console.error('Error fetching data:', error);
+            } finally {
+                setLoading(false); // Update loading state after fetching data
             }
         };
 
@@ -60,6 +63,14 @@ const BishopProgram = () => {
         return dateB - dateA;
     });
 
+    if (loading) {
+        return (
+            <div className='text-center mt-5' style={{ fontWeight: 'bold', color: 'black' }}>
+                <FontAwesomeIcon icon={faSpinner} spin size='2x' />
+            </div>
+        );
+    }
+
     return (
         <div className="container">
             <div
@@ -74,7 +85,7 @@ const BishopProgram = () => {
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLongTitle">
+                            <h5 className="modal-title" id="exampleModalLongTitle" style={{ textAlign: 'center', fontSize: '17px' }}>
                                 {selectedProgram?.ename}
                             </h5>
                             <button
@@ -87,6 +98,7 @@ const BishopProgram = () => {
                             </button>
                         </div>
                         <div className="modal-body">
+                            <p><strong>Event Name:</strong> {selectedProgram?.ename}</p>
                             <p><strong>Start Date:</strong> {selectedProgram && new Date(selectedProgram.startdate).toLocaleString('en-GB')}</p>
                             <p><strong>End Date:</strong> {selectedProgram?.enddate ? new Date(selectedProgram.enddate).toLocaleString('en-GB') : 'N/A'}</p>
                             <p><strong>Details:</strong> {selectedProgram?.details || 'No additional details available'}</p>
@@ -154,13 +166,7 @@ const BishopProgram = () => {
                                     </td>
                                     <td style={{ wordBreak: 'break-word', width: '30%' }}>
                                         <span style={{ display: 'flex', alignItems: 'center' }}>
-                                            <i
-                                                className="fa fa-eye fa-lg mr-2 btn btn-success btn-sm"
-                                                style={{ cursor: 'pointer', marginRight: '5px' }}
-                                                data-toggle="modal"
-                                                data-target="#exampleModalCenter"
-                                                onClick={() => handleProgramClick(program)}
-                                            />
+                                            <img src="images/all-img/view.png" alt="nodata" style={{ width: '30px', height: '30px', marginRight: '10px', marginLeft: '10px', cursor: 'pointer', boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)', borderRadius: '50%' }} data-toggle="modal" data-target="#exampleModalCenter" onClick={() => handleProgramClick(program)} />
                                         </span>
                                     </td>
                                 </tr>
@@ -179,7 +185,7 @@ const BishopProgram = () => {
                                 <div className="card-header" id={`heading${index}`}>
                                     <h2 className="mb-0">
                                         <span style={{ display: 'flex', alignItems: 'center' }}>
-                                            <img src='/images/all-img/tick.png' alt="nodata" style={{ width: '20px', height: '20px', marginRight: '10px', marginLeft: '10px',boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',borderRadius: '50%' }} />
+                                            <img src='/images/all-img/tick.png' alt="nodata" style={{ width: '20px', height: '20px', marginRight: '10px', marginLeft: '10px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)', borderRadius: '50%' }} />
                                             <button
                                                 className="btn btn-link btn-block text-left collapsed w-100 text-decoration-none"
                                                 type="button"
@@ -190,6 +196,7 @@ const BishopProgram = () => {
                                             >
                                                 {month}
                                             </button>
+                                            <h6 className="text-black font-weight-bold ml-3">({archivedPrograms[month].length})</h6>
                                         </span>
                                     </h2>
                                 </div>
@@ -245,13 +252,7 @@ const BishopProgram = () => {
                                                         </td>
                                                         <td style={{ wordBreak: 'break-word', width: '30%' }}>
                                                             <span style={{ display: 'flex', alignItems: 'center' }}>
-                                                                <i
-                                                                    className="fa fa-eye fa-lg mr-2 btn btn-success btn-sm"
-                                                                    style={{ cursor: 'pointer', marginRight: '5px' }}
-                                                                    data-toggle="modal"
-                                                                    data-target="#exampleModalCenter"
-                                                                    onClick={() => handleProgramClick(program)}
-                                                                />
+                                                                <img src="images/all-img/view.png" alt="nodata" style={{ width: '30px', height: '30px', marginRight: '10px', marginLeft: '10px', cursor: 'pointer', boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)', borderRadius: '50%' }} data-toggle="modal" data-target="#exampleModalCenter" onClick={() => handleProgramClick(program)} />
                                                             </span>
                                                         </td>
                                                     </tr>

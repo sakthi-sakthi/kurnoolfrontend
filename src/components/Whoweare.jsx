@@ -1,17 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './css/whoweare.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { ApiUrl } from './API/Api';
 
 const Whoweare = () => {
     const [activeTab, setActiveTab] = useState('bishop4');
+    const [message, setMessage] = useState([]);
+
+    useEffect(() => {
+        axios.get(`${ApiUrl}/get/messages/3`)
+            .then((response) => {
+                if (response.data.success && response.data.data.length > 0) {
+                    setMessage(response.data.data[0].content);
+                }
+            })
+            .catch((error) => {
+                console.error('Error fetching message:', error);
+            });
+    }, []);
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
     };
 
+
     return (
         <>
-            <div className="vh-section-outer mt-5 section-bg" id="whoweare" style={{backgroundImage: 'url("images/all-img/download.svg")'}}>
+            <div className="vh-section-outer mt-5 section-bg" id="whoweare" style={{ backgroundImage: 'url("images/all-img/download.svg")' }}>
                 <div className="section-inner">
                     <div className="container">
                         <div className="section-heading">
@@ -30,6 +46,18 @@ const Whoweare = () => {
                                             data-toggle="tab"
                                         >
                                             <p className="hidden-xs">Bishop Profile</p>
+                                        </a>
+                                    </li>
+                                    <li role="presentation" className={`category-link ${activeTab === 'message3' ? 'active' : ''}`}>
+                                        <a
+                                            href="/"
+                                            onClick={() => handleTabClick('message3')}
+                                            data-bs-target="#message3"
+                                            aria-controls="message3"
+                                            role="tab"
+                                            data-toggle="tab"
+                                        >
+                                            <p className="hidden-xs">Bishop Message</p>
                                         </a>
                                     </li>
                                     <li role="presentation" className={`category-link ${activeTab === 'history1' ? 'active' : ''}`}>
@@ -53,7 +81,7 @@ const Whoweare = () => {
                                             role="tab"
                                             data-toggle="tab"
                                         >
-                                            <p className="hidden-xs text-black">Mission</p>
+                                            <p className="hidden-xs text-black">Our Motto</p>
                                         </a>
                                     </li>
                                     <li role="presentation" className={`category-link ${activeTab === 'vision3' ? 'active' : ''}`}>
@@ -82,7 +110,7 @@ const Whoweare = () => {
 
                                                     <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}><img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} />After the withdrawal of the Jesuits in 1773, the Paris Foriegn Missionary Society took over the missionary task and kept alive the faith of the people. From 1875 onwards, the Mill Hill Fathers also labored in the Western parts of the diocese for some time. As a result of their hard work, kurnool was erected as Diocese in 1967. Most Rev. Joseph Rajappa, Most Rev. Matthew Cheriankunnel, Most Rev. S. A. Aruliah and Most Rev. G. Johannes initiated many developmental activities in the fields of evangelization, education, health and social development.</p>
 
-                                                    <Link to="/" className="btn btn-primary" id='btnmore'>
+                                                    <Link to="/history" className="btn btn-primary" id='btnmore'>
                                                         More Information
                                                     </Link>
                                                 </div>
@@ -97,7 +125,7 @@ const Whoweare = () => {
                                                     <img src="images/all-img/5.png" alt="" className="img-fluid" />
                                                 </div>
                                                 <div className="col-lg-9">
-                                                    <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}>Our mission is to provide support and care for the community through...</p>
+                                                    <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}>Your grace is sufficient for me</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -165,11 +193,44 @@ const Whoweare = () => {
                                                     </div>
                                                     <div className="row">
                                                         <div className="col-12">
-                                                            <button className="btn btn-primary" id='btnmore'>
+                                                            <Link to="/bishop-profile" className="btn btn-primary" id='btnmore'>
                                                                 View More
-                                                            </button>
+                                                            </Link>
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+                                    {activeTab === 'message3' && (
+                                        <div id="message3" className="tab-pane active">
+                                            <h4>Bishop Message:</h4>
+                                            <div className="row">
+                                                <div className="col-lg-3">
+                                                    <img
+                                                        src="images/all-img/bishop.jpeg"
+                                                        alt=""
+                                                        className="img-fluid"
+                                                        style={{
+                                                            width: '90%',
+                                                            boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
+                                                            borderRadius: '10px',
+                                                            padding: '10px'
+                                                        }}
+                                                    />
+                                                </div>
+                                                <div className="col-lg-9 custom-scrollbar" style={{ overflowY: 'auto', maxHeight: '380px' }}>
+                                                    <div
+                                                        className="message-content"
+                                                        style={{
+                                                            textAlign: 'justify',
+                                                            fontSize: '16px',
+                                                            lineHeight: '25px',
+                                                            letterSpacing: '0.5px',
+                                                            paddingRight: '15px'
+                                                        }}
+                                                        dangerouslySetInnerHTML={{ __html: message }}
+                                                    />
                                                 </div>
                                             </div>
                                         </div>

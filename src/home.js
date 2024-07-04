@@ -12,21 +12,39 @@ import { ThreeDots } from "react-loader-spinner";
 import HomeSections from "./components/homesections";
 import Whoweare from "./components/Whoweare";
 import Borderfooter from "./components/Borderfooter";
+
 function Home() {
+  const [isLoading, setLoading] = useState(true);
   const [homedata, setHomedata] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${ApiUrl}/get/homepagee/sections`);
-        setHomedata(response?.data?.data);
+        const data = response?.data?.data;
+        const storedHomedata = sessionStorage.getItem('homedata');
+        
+        if (storedHomedata) {
+          const parsedStoredData = JSON.parse(storedHomedata);
+
+          // Compare the fetched data with the stored data
+          if (JSON.stringify(data) !== JSON.stringify(parsedStoredData)) {
+            setHomedata(data);
+            sessionStorage.setItem('homedata', JSON.stringify(data));
+          } else {
+            setHomedata(parsedStoredData);
+          }
+        } else {
+          setHomedata(data);
+          sessionStorage.setItem('homedata', JSON.stringify(data));
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
-        setIsLoading(false);
+        setLoading(false);
       }
     };
+
     fetchData();
   }, []);
 
@@ -50,7 +68,6 @@ function Home() {
             wrapperStyle={{}}
             wrapperClass=""
           />
-
         </div>
       )}
 
@@ -58,14 +75,14 @@ function Home() {
         <>
           <Header menudata={homedata?.headerdata} />
           <Slider sliderdata={homedata?.sliderdata} />
-          <Scrollbar projectdata={homedata?.newsdata}/>
+          <Scrollbar projectdata={homedata?.newsdata} />
           <About />
           <HomeSections />
           <Whoweare />
-          <LatestNews projectdata={homedata?.newsdata}/>
-          <Youtube gallerydata={homedata?.gallerydata}/>
+          <LatestNews projectdata={homedata?.newsdata} />
+          <Youtube gallerydata={homedata?.gallerydata} />
           <Borderfooter />
-          <Footer footerdata={homedata?.footerdata}/>
+          <Footer footerdata={homedata?.footerdata} />
         </>
       )}
     </>
