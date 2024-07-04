@@ -26,6 +26,7 @@ const Newsletter = () => {
                 <h5 className="custom-card-title text-black"><i className="fa fa-edit"></i> {newsletter.title}</h5>
                 <p className="custom-card-text text-black"><i className="fa fa-calendar"></i> {newsletter.eventdate}</p>
                 <p className="custom-card-text text-black text-decoration-none"><i className="fa fa-download"></i> <a href={newsletter.file_url} target="_blank" rel="noreferrer" download={newsletter.file_url}>{newsletter.file_url}</a></p>
+                <a href={newsletter.file_url} target="_blank" rel="noreferrer" download={newsletter.file_url} className="btn btn-success text-white btn-sm"><i className="fa fa-download"></i> Download PDF</a>
               </div>
             </div>
           </div>
