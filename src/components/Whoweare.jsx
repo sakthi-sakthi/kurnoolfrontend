@@ -153,11 +153,12 @@ const Whoweare = () => {
                                     )}
                                     {activeTab === 'bishop4' && (
                                         <div id="bishop4" className="tab-pane active">
+                                              <h4>Bishop Profile :</h4>
                                             <div className="row">
                                                 <div className="col-lg-3">
-                                                    <img src="images/all-img/bishop.jpeg" alt="" className="img-fluid" style={{ width: '100%', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', borderRadius: '10px', padding: '10px' }} />
-                                                    <h6 className="mt-4 ml-3 text-center">Most Rev. Gorantla Johannes, OCD</h6>
-                                                    <p className="text-center">Bishop of Kurnool Diocese</p>
+                                                    <img src="images/all-img/newbishop.jpeg" alt="" className="img-fluid" style={{ width: '90%', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', borderRadius: '10px', padding: '10px' }} />
+                                                    {/* <h6 className="mt-4 ml-3 text-center">Most Rev. Gorantla Johannes, OCD</h6>
+                                                    <p className="text-center">Bishop of Kurnool Diocese</p> */}
                                                 </div>
                                                 <div className="col-lg-9">
                                                     <div className="row">
@@ -212,11 +213,11 @@ const Whoweare = () => {
                                     )}
                                     {activeTab === 'message3' && (
                                         <div id="message3" className="tab-pane active">
-                                            <h4>Bishop Message:</h4>
+                                            <h4>Bishop Message :</h4>
                                             <div className="row">
                                                 <div className="col-lg-3">
                                                     <img
-                                                        src="images/all-img/bishop.jpeg"
+                                                        src="images/all-img/newbishop.jpeg"
                                                         alt=""
                                                         className="img-fluid"
                                                         style={{
@@ -251,6 +252,9 @@ const Whoweare = () => {
                                                             dangerouslySetInnerHTML={{ __html: message }}
                                                         />
                                                     )}
+                                                    <Link to="/pastoral-message" className="btn btn-primary" id='btnmore'>
+                                                        View More
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>

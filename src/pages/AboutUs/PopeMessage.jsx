@@ -66,7 +66,7 @@ const PopeMessage = () => {
             <br />
             {latestMessage && (
                 <MessageContainer>
-                    <img src={latestMessage.file || 'images/all-img/noimages.png'} alt="Pope" style={{ width: '120px', height: '120px', borderRadius: '32%', marginLeft: "20px", float: 'right', boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }} title='Pope' />
+                    <img src={'images/all-img/bis.jpg' || 'images/all-img/noimages.png'} alt="Pope" style={{ width: '120px', height: '120px', borderRadius: '32%', marginLeft: "20px", float: 'right', boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }} title='Pope' />
                     <h4 className="mb-3 col-12"> {latestMessage.title} </h4>
                     <MessageContent dangerouslySetInnerHTML={{ __html: latestMessage.content }} />
                 </MessageContainer>
@@ -84,7 +84,7 @@ const PopeMessage = () => {
                             <div className="accordion-body">
                                 {olderMessages?.map(message => (
                                     <MessageContainer key={message.id}>
-                                        <img src={latestMessage.file || 'images/all-img/noimages.png'} alt="Pope" style={{ width: '120px', height: '120px', marginLeft: "20px", borderRadius: '32%', marginBottom: '10px', boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }} title='Pope' />
+                                        <img src={'images/all-img/bis.jpg' || 'images/all-img/noimages.png'} alt="Pope" style={{ width: '120px', height: '120px', marginLeft: "20px", borderRadius: '32%', marginBottom: '10px', boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }} title='Pope' />
                                         <MessageContent dangerouslySetInnerHTML={{ __html: message.content }} />
                                     </MessageContainer>
                                 ))}
