@@ -1,9 +1,9 @@
 {
   "short_name": "Kurnool Diocese App",
-  "name": "Welcome to Diocese of Kurnool",
+  "name": "Diocese of Kurnool",
   "icons": [
     {
-      "src": "images/logos/kurnoollogo.png",
+      "src": "images/logos/logo48.png",
       "sizes": "48x48",
       "type": "image/png",
       "purpose": "maskable any"

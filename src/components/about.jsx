@@ -15,9 +15,8 @@ function About() {
                   </h2>
                 </header>
                 <div className="entry-content mt-2">
-                  The Indian history Christianity reveals that Rayalaseema is the cradle of Catholicism in Andrah Pradesh. The two districts of this region Anantapur and kurnool witness or gave birth to Catholicism in Krishnapuram and Onteddupalle, Polur and Cowlur respectively. The Karnatic Jesuit missionaries sowed the seeds of Christianity in these villages from 1700. They also contributed extensively to Telugu Christian literature. It is recorded that the 1st person accepted Christ in Andra Prades was Rangappa of Sale Caste. Later in 1718 Thumma Rayaappa Reddy was baptized by Fr. LeeGac. As the Holy relics of the Carnatic mission today, we have three tombs of Jesuit missionaries in Krshnapuram.
+                  The Indian history Christianity reveals that Rayalaseema is the cradle of Catholicism in Andhra Pradesh. The two districts of this region Anantapur and kurnool witness or gave birth to Catholicism in Krishnapuram and Onteddupalle, Polur and Cowlur respectively. The Karnatic Jesuit missionaries sowed the seeds of Christianity in these villages from 1700. They also contributed extensively to Telugu Christian literature. It is recorded that the 1st person accepted Christ in Andhra Pradesh was Rangappa of Sale Caste. Later in 1718 Thumma Rayaappa Reddy was baptized by Fr. LeeGac. As the Holy relics of the Carnatic mission today, we have three tombs of Jesuit missionaries in Krshnapuram.
                 </div>
-
                 <center>
                   <Link to="/aboutus">
                     <button className="brown-button">Read More</button>
