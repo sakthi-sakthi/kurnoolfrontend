@@ -24,9 +24,11 @@ const Newsletter = () => {
               <img src={"images/all-img/newsletter.avif"} className="custom-card-img" alt={newsletter.title} />
               <div className="custom-card-body">
                 <h5 className="custom-card-title text-black"><i className="fa fa-edit"></i> {newsletter.title}</h5>
-                <p className="custom-card-text text-black"><i className="fa fa-calendar"></i> {newsletter.eventdate}</p>
-                <p className="custom-card-text text-black text-decoration-none"><i className="fa fa-download"></i> <a href={newsletter.file_url} target="_blank" rel="noreferrer" download={newsletter.file_url}>{newsletter.file_url}</a></p>
-                <a href={newsletter.file_url} target="_blank" rel="noreferrer" download={newsletter.file_url} className="btn btn-success text-white btn-sm"><i className="fa fa-download"></i> Download PDF</a>
+                <p className="custom-card-text text-black mt-4"><i className="fa fa-calendar"></i> {newsletter.eventdate}</p>
+                {newsletter?.file_url && (
+                    <p className="custom-card-text text-black text-decoration-none"><i className="fa fa-download"></i> <a href={newsletter.file_url} style={{ textDecoration: 'none',fontSize: '14px' }} target="_blank" rel="noreferrer">{newsletter.file_url.split('/').pop()}</a></p>
+                )}
+                <a href={newsletter.file_url} target="_blank" rel="noreferrer" className="btn btn-success text-white btn-sm"><i className="fa fa-download"></i> Download PDF</a>
               </div>
             </div>
           </div>

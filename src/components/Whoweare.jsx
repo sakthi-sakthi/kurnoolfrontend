@@ -3,27 +3,35 @@ import './css/whoweare.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { ApiUrl } from './API/Api';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 const Whoweare = () => {
     const [activeTab, setActiveTab] = useState('bishop4');
-    const [message, setMessage] = useState([]);
+    const [message, setMessage] = useState('');
+    const [loading, setLoading] = useState(true);
+    const [noData, setNoData] = useState(false);
 
     useEffect(() => {
         axios.get(`${ApiUrl}/get/messages/3`)
             .then((response) => {
+                setLoading(false);
                 if (response.data.success && response.data.data.length > 0) {
                     setMessage(response.data.data[0].content);
+                } else {
+                    setNoData(true);
                 }
             })
             .catch((error) => {
                 console.error('Error fetching message:', error);
+                setLoading(false);
+                setNoData(true);
             });
     }, []);
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
     };
-
 
     return (
         <>
@@ -106,7 +114,7 @@ const Whoweare = () => {
                                                     <img src="images/all-img/madha.png" style={{ width: '100%', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', borderRadius: '10px', padding: '10px' }} alt="" className="img-responsive" />
                                                 </div>
                                                 <div className="col-lg-9">
-                                                    <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}><img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} />The Indian history Christianity reveals that Rayalaseema is the cradle of Catholicism in Andrah Pradesh. The two districts of this region Anantapur and kurnool witness or gave birth to Catholicism in Krishnapuram and Onteddupalle, Polur and Cowlur respectively. The Karnatic Jesuit missionaries sowed the seeds of Christianity in these villages from 1700. They also contributed extensively to Telugu Christian literature. It is recorded that the 1st person accepted Christ in Andra Prades was Rangappa of Sale Caste. Later in 1718 Thumma Rayaappa Reddy was baptized by Fr. LeeGac. As the Holy relics of the Carnatic mission today, we have three tombs of Jesuit missionaries in Krshnapuram.</p>
+                                                    <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}><img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} />The Indian history Christianity reveals that Rayalaseema is the cradle of Catholicism in Andhra Pradesh. The two districts of this region Anantapur and kurnool witness or gave birth to Catholicism in Krishnapuram and Onteddupalle, Polur and Cowlur respectively. The Karnatic Jesuit missionaries sowed the seeds of Christianity in these villages from 1700. They also contributed extensively to Telugu Christian literature. It is recorded that the 1st person accepted Christ in Andra Prades was Rangappa of Sale Caste. Later in 1718 Thumma Rayaappa Reddy was baptized by Fr. LeeGac. As the Holy relics of the Carnatic mission today, we have three tombs of Jesuit missionaries in Krshnapuram.</p>
 
                                                     <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}><img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} />After the withdrawal of the Jesuits in 1773, the Paris Foriegn Missionary Society took over the missionary task and kept alive the faith of the people. From 1875 onwards, the Mill Hill Fathers also labored in the Western parts of the diocese for some time. As a result of their hard work, kurnool was erected as Diocese in 1967. Most Rev. Joseph Rajappa, Most Rev. Matthew Cheriankunnel, Most Rev. S. A. Aruliah and Most Rev. G. Johannes initiated many developmental activities in the fields of evangelization, education, health and social development.</p>
 
@@ -174,7 +182,7 @@ const Whoweare = () => {
                                                                 <dt><i className="fa fa-map-marker"></i> Place of Birth:</dt>
                                                                 <dd>Nawabupeta, in the diocese of Vijayawada</dd>
 
-                                                                <dt><i className="fa fa-language"></i> Lanugages Spoken:</dt>
+                                                                <dt><i className="fa fa-language"></i> Languages Spoken:</dt>
                                                                 <dd>Telugu, Hindi, Malayalam, English, Italian, German and Spanish</dd>
                                                             </dl>
                                                         </div>
@@ -220,17 +228,29 @@ const Whoweare = () => {
                                                     />
                                                 </div>
                                                 <div className="col-lg-9 custom-scrollbar" style={{ overflowY: 'auto', maxHeight: '380px' }}>
-                                                    <div
-                                                        className="message-content"
-                                                        style={{
-                                                            textAlign: 'justify',
-                                                            fontSize: '16px',
-                                                            lineHeight: '25px',
-                                                            letterSpacing: '0.5px',
-                                                            paddingRight: '15px'
-                                                        }}
-                                                        dangerouslySetInnerHTML={{ __html: message }}
-                                                    />
+                                                    {loading ? (
+                                                        <div className="text-center">
+                                                            <div className="spinner-border text-primary" role="status">
+                                                                <span className="sr-only"><FontAwesomeIcon icon={faSpinner} spin size="2x" /></span>
+                                                            </div>
+                                                        </div>
+                                                    ) : noData ? (
+                                                        <div className="text-center">
+                                                            <p className="mt-2 ml-3">No bishop message available</p>
+                                                        </div>
+                                                    ) : (
+                                                        <div
+                                                            className="message-content"
+                                                            style={{
+                                                                textAlign: 'justify',
+                                                                fontSize: '16px',
+                                                                lineHeight: '25px',
+                                                                letterSpacing: '0.5px',
+                                                                paddingRight: '15px'
+                                                            }}
+                                                            dangerouslySetInnerHTML={{ __html: message }}
+                                                        />
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>

@@ -19,7 +19,6 @@ const ReligiousPriest = () => {
                 const response = await axios.get(`${ApiUrl}/get/kurnooldiocese/preist/8`);
                 const filteredData = response?.data?.data.filter(item => item.id === parseInt(rpid));
                 setDetailData(filteredData[0]);
-                console.log(filteredData[0]);
             } catch (error) {
                 console.error('Error fetching detail data:', error);
             } finally {

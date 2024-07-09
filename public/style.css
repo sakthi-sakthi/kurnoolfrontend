@@ -3524,6 +3524,7 @@ nav .header-align-center {
   border: none;
   border-radius: 50px;
   cursor: pointer;
+  font-size:12px;
 }
 
 button.brown-button:hover {

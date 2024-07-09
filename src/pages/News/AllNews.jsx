@@ -96,6 +96,7 @@ const AllNews = () => {
                 <NewsTitle><i className="fa fa-newspaper-o"></i> {selectedNews.title}</NewsTitle>
                 <NewsCategory><i className="fa fa-tag"></i> {selectedNews.category_name}</NewsCategory>
                 <NewsCategory><i className="fa fa-calendar"></i> {selectedNews.eventdate}</NewsCategory>
+                <NewsCategory><i className="fa fa-download"></i><a href={selectedNews.file_url} target="_blank" rel="noopener noreferrer"> {selectedNews.file_url.split('/').pop()}</a></NewsCategory>
                 <NewsContent dangerouslySetInnerHTML={{ __html: selectedNews.content }}></NewsContent>
                 <Link to={'/'} className="btn btn-success btn-sm mt-3 mb-3 text-white" style={{ float: "right" }}><i className="fa fa-home"></i> Go Home</Link>
               </NewsDetails>

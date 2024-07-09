@@ -95,6 +95,14 @@ const AllLatestNews = () => {
                 <br />
                 <NewsTitle><i className="fa fa-newspaper-o"></i> {selectedNews.title}</NewsTitle>
                 <NewsCategory><i className="fa fa-tag"></i> {selectedNews.category_name}</NewsCategory>
+                {selectedNews?.file_url && (
+                  <NewsCategory>
+                    <i className="fa fa-download"></i>
+                    <a href={selectedNews.file_url} target="_blank" rel="noopener noreferrer">
+                      {selectedNews.file_url.split('/').pop()}
+                    </a>
+                  </NewsCategory>
+                )}
                 <NewsCategory><i className="fa fa-calendar"></i> {selectedNews.eventdate}</NewsCategory>
                 <NewsContent><i className="fa fa-newspaper-o"></i> {selectedNews.content}</NewsContent>
                 <Link to={'/'} className="btn btn-success btn-sm mt-3 mb-3 text-white" style={{ float: "right" }}><i className="fa fa-home"></i> Go Home</Link>

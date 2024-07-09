@@ -96,6 +96,7 @@ const AllActivity = () => {
                 <NewsTitle><i className="fa fa-newspaper-o"></i> {selectedNews.title}</NewsTitle>
                 <NewsCategory><i className="fa fa-tag"></i> {selectedNews.category_name}</NewsCategory>
                 <NewsCategory><i className="fa fa-calendar"></i> {selectedNews.eventdate}</NewsCategory>
+                <NewsCategory><i className="fa fa-download"></i><a href={selectedNews.file_url} target="_blank" rel="noopener noreferrer"> {selectedNews.file_url.split('/').pop()}</a></NewsCategory>
                 <NewsContent>
                   <div className="row mt-3">
                     <div className="col-lg-12">

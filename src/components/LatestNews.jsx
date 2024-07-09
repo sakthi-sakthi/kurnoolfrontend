@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './css/news.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 const LatestNews = ({ projectdata }) => {
   const [loading, setLoading] = useState(true);
@@ -24,10 +26,17 @@ const LatestNews = ({ projectdata }) => {
         </div>
         <div className="row">
           {loading ? (
-            <p>Loading...</p>
+            <div className="d-flex justify-content-center align-items-center" style={{ height: "200px" }}>
+              <div className="spinner-border text-primary" role="status">
+                <span className="sr-only text-center"><FontAwesomeIcon icon={faSpinner} spin size="2x" /></span>
+              </div>
+            </div>
           ) : latestNews.length === 0 ? (
-            <p>No data available.</p>
+              <div>
+                <p className="mt-2 ml-3">No upcoming news available</p>
+              </div>
           ) : (
+
             latestNews?.map((newsItem, index) => (
               <div className="col-md-4" key={index} id="latestnews">
                 <div className="card card-01">

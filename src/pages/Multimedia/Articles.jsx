@@ -38,6 +38,7 @@ const Articles = () => {
             <div className="card-body text-justify">
               <h3><i className="fa fa-edit"></i> {article?.title}</h3>
               <p><i className="fa fa-calendar"></i> {article?.eventdate}</p>
+              <p><i className="fa fa-download"></i><a href={article.file_url} target="_blank" rel="noopener noreferrer"> {article.file_url.split('/').pop()}</a></p>
               <p
                 dangerouslySetInnerHTML={{__html: article?.content}}
                 className="custom-scrollbar"

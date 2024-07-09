@@ -36,8 +36,8 @@ const MainLayout = () => {
       >
         <ThreeDots
           visible={true}
-          height="70"
-          width="70"
+          height="60px"
+          width="60px"
           color="#012c6d"
           ariaLabel="sultanpet-diocese-loading"
           wrapperStyle={{}}

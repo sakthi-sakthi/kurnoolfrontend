@@ -95,6 +95,14 @@ const AllFlashNews = () => {
                                 <NewsTitle><i className="fa fa-newspaper-o"></i> {selectedNews.title}</NewsTitle>
                                 <NewsCategory><i className="fa fa-tag"></i> {selectedNews.category_name}</NewsCategory>
                                 <NewsCategory><i className="fa fa-calendar"></i> {selectedNews.eventdate}</NewsCategory>
+                                {selectedNews?.file_url && (
+                                    <NewsCategory>
+                                        <i className="fa fa-download"></i>
+                                        <a href={selectedNews.file_url} target="_blank" rel="noopener noreferrer">
+                                            {selectedNews.file_url.split('/').pop()}
+                                        </a>
+                                    </NewsCategory>
+                                )}
                                 <NewsContent><i className="fa fa-newspaper-o"></i> {selectedNews.content}</NewsContent>
                                 <button className="btn btn-success btn-sm mt-3 mb-3" style={{ float: "right" }} onClick={() => window.location.href = '/'}><i className="fa fa-home"></i> Go Home</button>
                             </NewsDetails>
