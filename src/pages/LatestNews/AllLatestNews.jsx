@@ -98,7 +98,7 @@ const AllLatestNews = () => {
                 {selectedNews?.file_url && (
                   <NewsCategory>
                     <i className="fa fa-download"></i>
-                    <a href={selectedNews.file_url} target="_blank" rel="noopener noreferrer">
+                    <a href={selectedNews.file_url} target="_blank" rel="noopener noreferrer" className="ml-1">
                       {selectedNews.file_url.split('/').pop()}
                     </a>
                   </NewsCategory>
