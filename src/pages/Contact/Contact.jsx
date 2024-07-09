@@ -75,11 +75,10 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-                <h5>Contact Us</h5>
+                <br />
                 <div className="row">
                     <div className="ecep bs-callout col-lg-6">
-                        <img src="images/subpage/alumni-3-1.jpg" alt="" />
-
+                        <h4 className="heading text-center mb-4 mt-1">Contact Details</h4>
                         <div>
                             <i className="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;
                             Diocese of Kurnool,<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bishop’s House, Matha Kovil Street,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;St. Sebastian’s Cathedral, Sultanpet,<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Palakkad – 678 001, Kerala, S.India.
@@ -107,12 +106,19 @@ const Contact = () => {
                                 kurnooldiocese.in
                             </a>
                         </div>
+
+                        <div style={{ textAlign: "center", marginTop: "20px", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14)", padding: "10px", borderRadius: "10px", backgroundColor: "white" }} className="col-lg-12 col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12">
+                            <img src="images/all-img/CMP02654 (1).jpg" alt="No data" />
+                        </div>
                     </div>
 
                     <div className="col-lg-6 bs-callout">
+                        <h4 className="heading text-center mb-4 mt-1">Contact Form</h4>
                         <form
                             className="php-email-form"
                             onSubmit={handleSubmit(onSubmitContactForm)}
+                            method="POST"
+                            autoComplete="off"
                         >
                             <div className="row">
                                 <div className="form-group col-md-6">
@@ -121,13 +127,15 @@ const Contact = () => {
                                         type="text"
                                         name="name"
                                         className="form-control"
+                                        placeholder="Enter Your Name"
                                         id="name"
+                                        autoFocus
                                         {...register("name", { required: true })}
                                         aria-invalid={errors?.name ? "true" : "false"}
                                     />
                                     {errors?.name?.type === "required" && (
                                         <div className="text-danger text_error">
-                                            <label className="errlabel">Name is required</label>
+                                            <label className="errlabel mt-2">Name is required</label>
                                         </div>
                                     )}
                                 </div>
@@ -137,13 +145,14 @@ const Contact = () => {
                                         type="email"
                                         className="form-control"
                                         name="email"
+                                        placeholder="Enter Your Email"
                                         id="email"
                                         {...register("email", { required: true })}
                                         aria-invalid={errors?.email ? "true" : "false"}
                                     />
                                     {errors?.email?.type === "required" && (
                                         <div className="text-danger text_error">
-                                            <label className="errlabel">Email is required</label>
+                                            <label className="errlabel mt-2">Email is required</label>
                                         </div>
                                     )}
                                 </div>
@@ -151,17 +160,34 @@ const Contact = () => {
                             <div className="form-group">
                                 <label htmlFor="mobile">Your Mobile <span style={{ color: "red" }}>*</span></label>
                                 <input
-                                    type="tel"
+                                    type="text"
                                     className="form-control"
                                     name="mobile"
+                                    placeholder="Enter Your Mobile"
                                     id="mobile"
+                                    minLength={10}
                                     maxLength={10}
-                                    {...register("mobile", { required: true })}
+                                    onKeyDown={(e) => {
+                                        if (
+                                            (e.keyCode < 48 || e.keyCode > 57) &&
+                                            (e.keyCode < 96 || e.keyCode > 105) &&
+                                            e.keyCode !== 8 &&
+                                            e.keyCode !== 46
+                                        ) {
+                                            e.preventDefault();
+                                        }
+                                    }}
+                                    {...register("mobile", { required: true, pattern: /^\d{10}$/ })}
                                     aria-invalid={errors?.mobile ? "true" : "false"}
                                 />
                                 {errors?.mobile?.type === "required" && (
                                     <div className="text-danger text_error">
-                                        <label className="errlabel">Mobile is required</label>
+                                        <label className="errlabel mt-2">Mobile number is required</label>
+                                    </div>
+                                )}
+                                {errors?.mobile?.type === "pattern" && (
+                                    <div className="text-danger text_error">
+                                        <label className="errlabel mt-2">Mobile number must be 10 digits only</label>
                                     </div>
                                 )}
                             </div>
@@ -170,6 +196,8 @@ const Contact = () => {
                                 <textarea
                                     className="form-control"
                                     name="message"
+                                    placeholder="Enter Your Message"
+                                    id="message"
                                     rows={10}
                                     defaultValue={""}
                                     {...register("message", { required: true })}
@@ -177,7 +205,7 @@ const Contact = () => {
                                 />
                                 {errors?.message?.type === "required" && (
                                     <div className="text-danger text_error">
-                                        <label className="errlabel">Message is required</label>
+                                        <label className="errlabel mt-2">Message is required</label>
                                     </div>
                                 )}
                             </div>
@@ -202,13 +230,9 @@ const Contact = () => {
                                 <span
                                     id="loader"
                                     style={{ display: loaderVisible ? "inline-block" : "none" }}
+                                    className="ml-3"
                                 >
-                                    <img
-                                        src="images/subpage/gif/ajaxload.gif"
-                                        width="32px"
-                                        height="32px"
-                                        alt="Loader"
-                                    />
+                                    <i className="fa fa-spinner fa-spin fa-2x"></i>
                                 </span>
                             </div>
                         </form>
