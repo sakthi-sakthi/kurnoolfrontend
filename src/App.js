@@ -27,6 +27,9 @@ import NotFound from "./NotFound";
 import AllNews from "./pages/News/AllNews";
 import AllCommissions from "./pages/Commissions/AllCommissions";
 import EducationCommission from "./pages/TheDiocese/EducationCommission";
+import PastoralCommission from "./pages/TheDiocese/PastoralCommission";
+import SocialServiceCommission from "./pages/TheDiocese/SocialServiceCommission";
+import YouthCommission from "./pages/TheDiocese/YouthCommission";
 
 
 
@@ -52,10 +55,10 @@ function App() {
             <Route path="necrology" element={<BriefHistory />} />
             {/* The Diocese Page Routing */}
             <Route path="parishes" element={<Commission />} />
-            <Route path="pastoral-commission" element={<Commission />} />
+            <Route path="pastoral-commission" element={<PastoralCommission />} />
             <Route path="education-commission" element={<EducationCommission />} />
-            <Route path="social-service-commission" element={<Commission />} />
-            <Route path="youth-commission" element={<Commission />} />
+            <Route path="social-service-commission" element={<SocialServiceCommission />} />
+            <Route path="youth-commission" element={<YouthCommission />} />
             <Route path="deaneries" element={<Commission />} />
             <Route path="cathedral" element={<Commission />} />
             <Route path="diocesan-shrine" element={<Commission />} />

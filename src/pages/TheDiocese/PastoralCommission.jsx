@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { ApiUrl } from '../../components/API/Api';
 
-function EducationCommission() {
+function PastoralCommission() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${ApiUrl}/get/commissions/2`);
+        const response = await axios.get(`${ApiUrl}/get/commissions/1`);
         setData(response?.data?.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -138,4 +138,4 @@ function EducationCommission() {
   );
 }
 
-export default EducationCommission;
+export default PastoralCommission;
