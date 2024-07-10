@@ -1,7 +1,7 @@
 ul {
   list-style: none;
   padding: 0;
-  margin-bottom: 3px !important;
+  margin-bottom: 0px !important;
   /* background: #0d4571; */
   text-align: justify;
 }
@@ -206,4 +206,9 @@ ul:after {
   background-color: #e0ab08 !important;
   border: none;
   animation: step-start 1s infinite;
+}
+
+.navbar ul li a:hover {
+  border-bottom: 3px solid #ffbf00;
+  border-radius: 0px 0px 5px 5px;
 }

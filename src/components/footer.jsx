@@ -35,7 +35,7 @@ function Footer({footerdata}) {
                         fontSize: "13px",
                       }}
                     >
-                      The Indian history Christianity reveals that Rayalaseema is the cradle of Catholicism in Andrah Pradesh. The two districts of this region Anantapur and kurnool
+                      The Indian history Christianity reveals that Rayalaseema is the cradle of Catholicism in Andhra Pradesh. The two districts of this region Anantapur and kurnool
                     </p>
                   </div>
                   <p

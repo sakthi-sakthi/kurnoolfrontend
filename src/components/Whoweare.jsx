@@ -108,7 +108,6 @@ const Whoweare = () => {
                                 <div className="tab-content">
                                     {activeTab === 'history1' && (
                                         <div id="history1" className="tab-pane active">
-                                            <h4>History of the Diocese :</h4>
                                             <div className="row">
                                                 <div className="col-lg-3">
                                                         <img src="images/all-img/madha.png" id='bishopimagesnew' style={{ width: '100%', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', borderRadius: '10px', padding: '10px' }} alt="" className="img-responsive" />
@@ -127,38 +126,27 @@ const Whoweare = () => {
                                     )}
                                     {activeTab === 'mission2' && (
                                         <div id="mission2" className="tab-pane active">
-                                            <h4>Our Mission :</h4>
                                             <div className="row">
-                                                <div className="col-lg-3">
-                                                    <img src="images/all-img/5.png" alt="" id='bishopimagesnew' className="img-fluid" />
-                                                </div>
-                                                <div className="col-lg-9">
-                                                    <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}>Your grace is sufficient for me</p>
+                                                <div className="col-lg-12">
+                                                    <h5 style={{ textAlign: 'center', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}>"Your grace is sufficient for me"</h5>
                                                 </div>
                                             </div>
                                         </div>
                                     )}
                                     {activeTab === 'vision3' && (
                                         <div id="vision3" className="tab-pane active">
-                                            <h4>Our Vision :</h4>
                                             <div className="row">
-                                                <div className="col-lg-3">
-                                                    <img src="images/all-img/shrine.webp" alt="" id='bishopimagesnew' className="img-fluid" />
-                                                </div>
-                                                <div className="col-lg-9">
-                                                    <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}>Our vision is to provide support and care for the community through...</p>
+                                                <div className="col-lg-12">
+                                                    <h5 style={{ textAlign: 'center', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}>"Our vision is to provide support and care for the community"</h5>
                                                 </div>
                                             </div>
                                         </div>
                                     )}
                                     {activeTab === 'bishop4' && (
                                         <div id="bishop4" className="tab-pane active">
-                                              <h4>Bishop Profile :</h4>
                                             <div className="row">
                                                 <div className="col-lg-3">
                                                     <img src="images/all-img/newbishop.jpeg" alt="" className="img-fluid" id='bishopimagesnew' style={{ width: '90%', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', borderRadius: '10px', padding: '10px' }} />
-                                                    {/* <h6 className="mt-4 ml-3 text-center">Most Rev. Gorantla Johannes, OCD</h6>
-                                                    <p className="text-center">Bishop of Kurnool Diocese</p> */}
                                                 </div>
                                                 <div className="col-lg-9">
                                                     <div className="d-none d-lg-block row">
@@ -217,7 +205,6 @@ const Whoweare = () => {
                                     )}
                                     {activeTab === 'message3' && (
                                         <div id="message3" className="tab-pane active">
-                                            <h4>Bishop Message :</h4>
                                             <div className="row">
                                                 <div className="col-lg-3">
                                                     <img
@@ -257,9 +244,11 @@ const Whoweare = () => {
                                                             dangerouslySetInnerHTML={{ __html: message }}
                                                         />
                                                     )}
-                                                    <Link to="/pastoral-message" className="btn btn-primary" id='btnmore'>
-                                                        View More
-                                                    </Link>
+                                                    {!noData && (
+                                                        <Link to="/pastoral-message" className="btn btn-primary" id='btnmore'>
+                                                            View More
+                                                        </Link>
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>

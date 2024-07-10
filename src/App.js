@@ -25,6 +25,8 @@ import Calendar from "./pages/Calendar/Calendar";
 import News from "./pages/News/News";
 import NotFound from "./NotFound";
 import AllNews from "./pages/News/AllNews";
+import AllCommissions from "./pages/Commissions/AllCommissions";
+import EducationCommission from "./pages/TheDiocese/EducationCommission";
 
 
 
@@ -51,7 +53,7 @@ function App() {
             {/* The Diocese Page Routing */}
             <Route path="parishes" element={<Commission />} />
             <Route path="pastoral-commission" element={<Commission />} />
-            <Route path="education-commission" element={<Commission />} />
+            <Route path="education-commission" element={<EducationCommission />} />
             <Route path="social-service-commission" element={<Commission />} />
             <Route path="youth-commission" element={<Commission />} />
             <Route path="deaneries" element={<Commission />} />
@@ -102,6 +104,7 @@ function App() {
             {/* News Page Routing */}
             <Route path="news" element={<News />} />
             <Route path="allnews" element={<AllNews />} />
+            <Route path="all-commission" element={<AllCommissions />} />
             {/* Default Page Routing */}
             <Route path="*" element={<NotFound />} />
           </Route>

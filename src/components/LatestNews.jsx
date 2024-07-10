@@ -21,7 +21,7 @@ const LatestNews = ({ projectdata }) => {
       <div className="container">
         <div className="col-12">
           <div className="section-heading mt-5">
-            <h2 className="entry-title">Upcoming News & Events</h2>
+            <h2 className="entry-title">News & Events</h2>
           </div>
         </div>
         <div className="row">
@@ -33,7 +33,7 @@ const LatestNews = ({ projectdata }) => {
             </div>
           ) : latestNews.length === 0 ? (
               <div>
-                <p className="mt-2 ml-3">No upcoming news available</p>
+                <p className="mt-2 ml-3">No news available</p>
               </div>
           ) : (
 

@@ -743,7 +743,7 @@ a:active {
 .home-page-welcome {
   position: relative;
   padding: 50px 0;
-  background: url("https://images.unsplash.com/photo-1438032005730-c779502df39b?fm=jpg&w=3000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2h1cmNofGVufDB8fDB8fHww") no-repeat center;
+  background: url("images/all-img/0D6A0128.JPG") no-repeat center;
   background-size: cover;
   z-index: 99;
 }
@@ -808,6 +808,10 @@ a:active {
 @media screen and (max-width: 992px) {
   .home-page-welcome img {
     margin-bottom: 60px;
+  }
+
+  .welcome-content .entry-content {
+    text-align: justify;
   }
 }
 
@@ -2856,7 +2860,7 @@ div.main-tile-text h2 {
 }
 
 .subpage img {
-  width: -webkit-fill-available;
+  width: 97%;
   margin: 10px;
 }
 
@@ -3299,7 +3303,7 @@ div.main-tile-text h2 {
 
 @media (max-width: 768px) {
   .welcome-content .entry-title {
-    font-size: 30px;
+    font-size: 25px;
   }
 }
 
@@ -3524,7 +3528,7 @@ nav .header-align-center {
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  font-size:12px;
+  font-size: 12px;
 }
 
 button.brown-button:hover {
@@ -3538,6 +3542,7 @@ button.brown-button:hover {
   0% {
     background-color: #0d4571;
   }
+
   100% {
     background-color: #e0ab08;
   }
@@ -4406,11 +4411,13 @@ li ul {
   text-align: center;
   font-family: "Poppins", sans-serif !important;
 }
+
 .btn-hover.color-1 {
   background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
-    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
   font-family: "Poppins", sans-serif !important;
 }
+
 .btn-hover {
   width: 220px;
   font-family: "Poppins", sans-serif !important;
@@ -4437,67 +4444,78 @@ li ul {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 10px 0px 10px 0px;
 }
+
 .rs-services.style16 .services-wrap {
-  margin: 10px 10px 10px 10px;
   transition: background 0.6s;
   border-radius: 50px 3px 50px 3px;
-  padding: 20px 20px 20px 20px;
   transition: all ease .3s;
 }
+
 .rs-services.style16 .services-wrap .services-txt .services-title {
   font-size: 17px;
   line-height: 36px;
   font-weight: 600;
   margin-bottom: 14px;
 }
+
 .rs-services.style16 .services-wrap .services-txt .services-title a {
   color: #1c1b1b;
 }
+
 .rs-services.style16 .services-wrap .services-txt .serial-number {
   color: #000000;
   font-family: "Poppins", Sans-serif;
   font-size: 14px;
   font-weight: 600;
 }
+
 .rs-services.style16 .services-wrap:hover {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .services-wrap {
   text-align: center;
-  box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+  /* box-shadow: 0 0 15px rgba(10, 10, 10, 0.3); */
 }
+
 .footer-design {
   width: 16.66%;
   float: left;
 }
+
 .footer-design-1 {
   background-color: #812570;
   height: 8px;
 }
+
 .footer-design-2 {
   background-color: #ce376c;
   height: 8px;
 }
+
 .footer-design-3 {
   background-color: #f4911a;
   height: 8px;
 }
+
 .footer-design-4 {
   background-color: #f5bf14;
   height: 8px;
 }
+
 .footer-design-5 {
   background-color: #91c483;
   height: 8px;
 }
+
 .footer-design-6 {
   background-color: #ffab76;
   height: 8px;
 }
+
 .footer-design-container {
   margin-bottom: 8px;
 }

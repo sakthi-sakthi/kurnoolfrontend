@@ -5,28 +5,12 @@ import { ApiUrl } from '../../components/API/Api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-function Commission() {
+function EducationCommission() {
   const location = useLocation();
   const url = location.pathname;
 
   const path = {
-    '/parishes': 10,
-    '/pastoral-commission':11,
-    '/social-service-commission':13,
-    '/youth-commission':14,
-    '/deaneries':15,
-    '/cathedral':16,
-    '/diocesan-shrine':17,
-    '/joharapuram':18,
-    '/guntakal':19,
-    '/maddikera':20,
-    '/nandikotkur':21,
-    '/chapirevula':22,
-    '/premagiri':23,
-    '/srisailam':24,
-    '/yathrikulamatha':25,
-    '/krishnapuram':26,
-    '/seminarians':27,
+    '/education-commission':12,
   };
   const pageId = path[url] ? path[url] : url;
 
@@ -105,4 +89,4 @@ function Commission() {
   );
 }
 
-export default Commission;
+export default EducationCommission;
