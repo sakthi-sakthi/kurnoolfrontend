@@ -116,7 +116,7 @@ ul:after {
 
 .card-01 .card-body {
   position: relative;
-  padding-top: 40px;
+  padding-top: 10px;
 }
 
 .card-01 .badge-box {
@@ -164,32 +164,40 @@ ul:after {
   font-weight: 600;
   padding: 10px 20px;
   border-radius: 50px;
-  display: inline-block; /* Ensures button behaves correctly in most cases */
-  text-align: center; /* Center text within the button */
-  white-space: nowrap; /* Prevents text wrapping onto multiple lines */
-  max-width: 100%; /* Ensures button doesn't overflow parent container */
-  box-sizing: border-box; /* Ensures padding is included in width calculation */
-  width: auto; /* Let the button adjust its width based on content */
+  display: inline-block;
+  /* Ensures button behaves correctly in most cases */
+  text-align: center;
+  /* Center text within the button */
+  white-space: nowrap;
+  /* Prevents text wrapping onto multiple lines */
+  max-width: 100%;
+  /* Ensures button doesn't overflow parent container */
+  box-sizing: border-box;
+  /* Ensures padding is included in width calculation */
+  width: auto;
+  /* Let the button adjust its width based on content */
 }
 
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
   #btnmore {
-      font-size: 12px; /* Decrease font size on smaller screens */
-      padding: 8px 16px; /* Adjust padding for smaller screens */
+    font-size: 10px;
+    padding: 8px 8px;
   }
 }
 
 /* Example animation */
 @keyframes step-start {
   0% {
-      transform: scale(1);
+    transform: scale(1);
   }
+
   50% {
-      transform: scale(1.1);
+    transform: scale(1.1);
   }
+
   100% {
-      transform: scale(1);
+    transform: scale(1);
   }
 }
 

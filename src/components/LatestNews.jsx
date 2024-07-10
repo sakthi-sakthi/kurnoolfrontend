@@ -51,7 +51,7 @@ const LatestNews = ({ projectdata }) => {
                     <br />
                     <h4 className="card-title"><Link to="/">{newsItem?.title || "Title not available"}</Link></h4>
                     <p className="card-text">
-                      {newsItem?.content?.split(' ').slice(0, 10).join(' ').concat(newsItem?.content?.split(' ').length > 100 ? '...' : '')}
+                      {newsItem?.content?.split(' ').slice(0, 10).join(' ').concat(newsItem?.content?.split(' ').length > 100 ? '' : '')}
                     </p>
                     <Link to={`/all-latest-news?newsid=${encodeURIComponent(btoa(newsItem.id))}`} className="btn btn-primary" id='btnmore'>
                       View More

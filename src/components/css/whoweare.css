@@ -156,3 +156,11 @@ a p {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: #495057; /* Darker color when hovered */
 }
+
+@media (max-width: 767px) {
+  #bishopimagesnew {
+    width: 60% !important;
+    margin-left: 60px;
+    margin-bottom: 30px;
+  }
+}

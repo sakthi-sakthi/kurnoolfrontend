@@ -111,7 +111,7 @@ const Whoweare = () => {
                                             <h4>History of the Diocese :</h4>
                                             <div className="row">
                                                 <div className="col-lg-3">
-                                                    <img src="images/all-img/madha.png" style={{ width: '100%', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', borderRadius: '10px', padding: '10px' }} alt="" className="img-responsive" />
+                                                        <img src="images/all-img/madha.png" id='bishopimagesnew' style={{ width: '100%', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', borderRadius: '10px', padding: '10px' }} alt="" className="img-responsive" />
                                                 </div>
                                                 <div className="col-lg-9">
                                                     <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}><img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} />The Indian history Christianity reveals that Rayalaseema is the cradle of Catholicism in Andhra Pradesh. The two districts of this region Anantapur and kurnool witness or gave birth to Catholicism in Krishnapuram and Onteddupalle, Polur and Cowlur respectively. The Karnatic Jesuit missionaries sowed the seeds of Christianity in these villages from 1700. They also contributed extensively to Telugu Christian literature. It is recorded that the 1st person accepted Christ in Andra Prades was Rangappa of Sale Caste. Later in 1718 Thumma Rayaappa Reddy was baptized by Fr. LeeGac. As the Holy relics of the Carnatic mission today, we have three tombs of Jesuit missionaries in Krshnapuram.</p>
@@ -130,7 +130,7 @@ const Whoweare = () => {
                                             <h4>Our Mission :</h4>
                                             <div className="row">
                                                 <div className="col-lg-3">
-                                                    <img src="images/all-img/5.png" alt="" className="img-fluid" />
+                                                    <img src="images/all-img/5.png" alt="" id='bishopimagesnew' className="img-fluid" />
                                                 </div>
                                                 <div className="col-lg-9">
                                                     <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}>Your grace is sufficient for me</p>
@@ -143,7 +143,7 @@ const Whoweare = () => {
                                             <h4>Our Vision :</h4>
                                             <div className="row">
                                                 <div className="col-lg-3">
-                                                    <img src="images/all-img/shrine.webp" alt="" className="img-fluid" />
+                                                    <img src="images/all-img/shrine.webp" alt="" id='bishopimagesnew' className="img-fluid" />
                                                 </div>
                                                 <div className="col-lg-9">
                                                     <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}>Our vision is to provide support and care for the community through...</p>
@@ -156,20 +156,24 @@ const Whoweare = () => {
                                               <h4>Bishop Profile :</h4>
                                             <div className="row">
                                                 <div className="col-lg-3">
-                                                    <img src="images/all-img/newbishop.jpeg" alt="" className="img-fluid" style={{ width: '90%', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', borderRadius: '10px', padding: '10px' }} />
+                                                    <img src="images/all-img/newbishop.jpeg" alt="" className="img-fluid" id='bishopimagesnew' style={{ width: '90%', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', borderRadius: '10px', padding: '10px' }} />
                                                     {/* <h6 className="mt-4 ml-3 text-center">Most Rev. Gorantla Johannes, OCD</h6>
                                                     <p className="text-center">Bishop of Kurnool Diocese</p> */}
                                                 </div>
                                                 <div className="col-lg-9">
-                                                    <div className="row">
+                                                    <div className="d-none d-lg-block row">
                                                         <div className="col-12">
                                                             <h4>Most Rev. Gorantla Johannes, OCD</h4>
                                                         </div>
                                                     </div>
-                                                    <div className="row">
+                                                    <div className="d-lg-none">
+                                                    </div>
+                                                    <div className="d-none d-lg-block row">
                                                         <div className="col-12">
                                                             <p>Bishop of Kurnool Diocese</p>
                                                         </div>
+                                                    </div>
+                                                    <div className="d-lg-none">
                                                     </div>
                                                     <div className="row justify-content-between">
                                                         <div className="col-6">
@@ -220,6 +224,7 @@ const Whoweare = () => {
                                                         src="images/all-img/newbishop.jpeg"
                                                         alt=""
                                                         className="img-fluid"
+                                                        id='bishopimagesnew'
                                                         style={{
                                                             width: '90%',
                                                             boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
