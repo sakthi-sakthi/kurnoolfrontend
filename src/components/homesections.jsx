@@ -7,7 +7,7 @@ const HomeSections = () => {
         <>
             <div id="rs-services" className="rs-services style16 bg29">
                 <div className="container">
-                    <div className="section-heading mt-5">
+                    <div className="section-heading mt-2">
                         <h2 className="entry-title">Our Diocese</h2>
                     </div>
                     <div className="row"> 
