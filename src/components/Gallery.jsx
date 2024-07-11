@@ -4,8 +4,9 @@ import Slider from "react-slick";
 import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { ApiUrl } from "../../components/API/Api";
-const Gallery = () => {
+import { ApiUrl } from "./API/Api";
+
+const GalleryImages = () => {
   const [modalShow, setModalShow] = useState(false);
   const [modalImages, setModalImages] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -37,7 +38,9 @@ const Gallery = () => {
             []
           );
 
-          setCategories(groupedCategories);
+          groupedCategories.sort((a, b) => b.date - a.date);
+          const latestCategories = groupedCategories.slice(0, 4);
+          setCategories(latestCategories);
         } else {
           console.error("Invalid API response format:", response.data);
         }
@@ -76,9 +79,12 @@ const Gallery = () => {
 
   return (
     <div className="container">
-      <h2 className="entry-title mt-3 mb-3 text-center">Album Gallery</h2>
+      <div className="section-heading">
+        <h2 className="entry-title">Gallery</h2>
+      </div>
+
       {loading ? (
-        <div className="mt-2 mb-3 text-center font-weight-bold">Loading...</div>
+        <div className="mt-2 mb-3">Loading...</div>
       ) : categories.length === 0 ? (
         <div className="mt-2 mb-3">No gallery images available.</div>
       ) : (
@@ -178,4 +184,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default GalleryImages;

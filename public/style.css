@@ -4519,3 +4519,43 @@ li ul {
 .footer-design-container {
   margin-bottom: 8px;
 }
+
+dd {
+  font-size: 14px;
+}
+
+dt {
+  font-size: 15px;
+  font-weight: 500 !important;
+}
+
+.slick-slider-container {
+  position: relative;
+}
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(250, 0, 0, 0.5) !important;
+  border-radius: 50% !important;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
+}
+
+.slick-prev i,
+.slick-next i {
+  font-size: 24px;
+  color: #333;
+}

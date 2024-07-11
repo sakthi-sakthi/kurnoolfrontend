@@ -24,7 +24,7 @@ const BishopProgram = () => {
             } catch (error) {
                 console.error('Error fetching data:', error);
             } finally {
-                setLoading(false); // Update loading state after fetching data
+                setLoading(false);
             }
         };
 
@@ -122,7 +122,7 @@ const BishopProgram = () => {
                 <div key={month}>
                     <h3 className="text-center mt-3 mb-4">{month}</h3>
                     <table className="table table-striped table-bordered table-hover mt-3 mb-5">
-                        <thead>
+                        <thead className="thead-dark">
                             <tr>
                                 <th>S.No</th>
                                 <th>Bishop Event Name</th>
@@ -132,10 +132,10 @@ const BishopProgram = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {programs[month].map((program, index) => (
+                            {[...programs[month]].sort((a, b) => new Date(a.startdate) - new Date(b.startdate)).map((program, index) => (
                                 <tr key={program.id}>
                                     <td>{index + 1}</td>
-                                    <td style={{ wordBreak: 'break-word', width: '50%' }}>{program.ename}</td>
+                                    <td style={{ wordBreak: 'break-word', width: '40%' }}>{program.ename}</td>
                                     <td style={{ wordBreak: 'break-word', width: '25%' }}>
                                         {new Date(program.startdate).toLocaleDateString('en-GB', {
                                             day: '2-digit',
@@ -149,7 +149,7 @@ const BishopProgram = () => {
                                         })}{' '}
                                         - {new Date(program.startdate).toLocaleDateString('en-GB', { weekday: 'short' })}
                                     </td>
-                                    <td style={{ wordBreak: 'break-word', width: '20%' }}>
+                                    <td style={{ wordBreak: 'break-word', width: '25%' }}>
                                         {program.enddate
                                             ? `${new Date(program.enddate).toLocaleDateString('en-GB', {
                                                 day: '2-digit',
@@ -164,7 +164,7 @@ const BishopProgram = () => {
                                             })}`
                                             : '-'}
                                     </td>
-                                    <td style={{ wordBreak: 'break-word', width: '30%' }}>
+                                    <td style={{ wordBreak: 'break-word', width: '20%' }}>
                                         <span style={{ display: 'flex', alignItems: 'center' }}>
                                             <img src="images/all-img/view.png" alt="nodata" style={{ width: '30px', height: '30px', marginRight: '10px', marginLeft: '10px', cursor: 'pointer', boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)', borderRadius: '50%' }} data-toggle="modal" data-target="#exampleModalCenter" onClick={() => handleProgramClick(program)} />
                                         </span>
@@ -208,7 +208,7 @@ const BishopProgram = () => {
                                 >
                                     <div className="card-body">
                                         <table className="table table-striped table-bordered table-hover mt-3 mb-5">
-                                            <thead>
+                                            <thead className="thead-dark">
                                                 <tr>
                                                     <th>S.No</th>
                                                     <th>Bishop Event Name</th>
@@ -218,39 +218,27 @@ const BishopProgram = () => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {archivedPrograms[month].map((program, idx) => (
+                                                {archivedPrograms[month].sort((a, b) => new Date(a.startdate) - new Date(b.startdate)).map((program, idx) => (
                                                     <tr key={program.id}>
                                                         <td>{idx + 1}</td>
-                                                        <td style={{ wordBreak: 'break-word', width: '50%' }}>{program.ename}</td>
+                                                        <td style={{ wordBreak: 'break-word', width: '40%' }}>{program.ename}</td>
                                                         <td style={{ wordBreak: 'break-word', width: '25%' }}>
                                                             {new Date(program.startdate).toLocaleDateString('en-GB', {
-                                                                day: '2-digit',
-                                                                month: '2-digit',
                                                                 year: 'numeric',
-                                                            })}{' '}
-                                                            {new Date(program.startdate).toLocaleTimeString('en-GB', {
-                                                                hour: '2-digit',
-                                                                minute: '2-digit',
-                                                                hour12: true,
-                                                            })}{' '}
-                                                            - {new Date(program.startdate).toLocaleDateString('en-GB', { weekday: 'short' })}
+                                                                month: '2-digit',
+                                                                day: '2-digit',
+                                                            })}
                                                         </td>
-                                                        <td style={{ wordBreak: 'break-word', width: '20%' }}>
+                                                        <td style={{ wordBreak: 'break-word', width: '25%' }}>
                                                             {program.enddate
-                                                                ? `${new Date(program.enddate).toLocaleDateString('en-GB', {
-                                                                    day: '2-digit',
-                                                                    month: '2-digit',
+                                                                ? new Date(program.enddate).toLocaleDateString('en-GB', {
                                                                     year: 'numeric',
-                                                                })} ${new Date(program.enddate).toLocaleTimeString('en-GB', {
-                                                                    hour: '2-digit',
-                                                                    minute: '2-digit',
-                                                                    hour12: true,
-                                                                })} - ${new Date(program.enddate).toLocaleDateString('en-GB', {
-                                                                    weekday: 'short',
-                                                                })}`
+                                                                    month: '2-digit',
+                                                                    day: '2-digit',
+                                                                })
                                                                 : '-'}
                                                         </td>
-                                                        <td style={{ wordBreak: 'break-word', width: '30%' }}>
+                                                        <td style={{ wordBreak: 'break-word', width: '20%' }}>
                                                             <span style={{ display: 'flex', alignItems: 'center' }}>
                                                                 <img src="images/all-img/view.png" alt="nodata" style={{ width: '30px', height: '30px', marginRight: '10px', marginLeft: '10px', cursor: 'pointer', boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)', borderRadius: '50%' }} data-toggle="modal" data-target="#exampleModalCenter" onClick={() => handleProgramClick(program)} />
                                                             </span>

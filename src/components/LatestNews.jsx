@@ -10,7 +10,7 @@ const LatestNews = ({ projectdata }) => {
 
   useEffect(() => {
     if (projectdata) {
-      const news = projectdata?.filter(item => item?.category_id === 1).slice(0, 3) || [];
+      const news = projectdata?.filter(item => item?.category_id === 1).slice(0, 4) || [];
       setLatestNews(news);
       setLoading(false);
     }
@@ -20,7 +20,7 @@ const LatestNews = ({ projectdata }) => {
     <section>
       <div className="container">
         <div className="col-12">
-          <div className="section-heading mt-5">
+          <div className="section-heading mt-3">
             <h2 className="entry-title">News & Events</h2>
           </div>
         </div>
@@ -38,7 +38,7 @@ const LatestNews = ({ projectdata }) => {
           ) : (
 
             latestNews?.map((newsItem, index) => (
-              <div className="col-md-4" key={index} id="latestnews">
+              <div className="col-md-3" key={index} id="latestnews">
                 <div className="card card-01">
                   <img
                     className="card-img-top"
@@ -50,7 +50,7 @@ const LatestNews = ({ projectdata }) => {
                     <br />
                     <br />
                     <h4 className="card-title"><Link to="/">{newsItem?.title || "Title not available"}</Link></h4>
-                    <p className="card-text">
+                    <p className="card-text mt-2">
                       {newsItem?.content?.split(' ').slice(0, 10).join(' ').concat(newsItem?.content?.split(' ').length > 100 ? '' : '')}
                     </p>
                     <Link to={`/all-latest-news?newsid=${encodeURIComponent(btoa(newsItem.id))}`} className="btn btn-primary" id='btnmore'>

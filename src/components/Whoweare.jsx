@@ -35,11 +35,11 @@ const Whoweare = () => {
 
     return (
         <>
-            <div className="vh-section-outer mt-5 section-bg" id="whoweare" style={{ backgroundImage: 'url("images/all-img/download.svg")' }}>
+            <div className="vh-section-outer section-bg" id="whoweare" style={{ backgroundImage: 'url("images/all-img/download.svg")' }}>
                 <div className="section-inner">
                     <div className="container">
                         <div className="section-heading">
-                            <h2 className="entry-title text-white mt-5">Who We Are</h2>
+                            <h2 className="entry-title text-white mt-3">Who We Are</h2>
                         </div>
                         <div className="row">
                             <div className="tabSection">
@@ -110,12 +110,30 @@ const Whoweare = () => {
                                         <div id="history1" className="tab-pane active">
                                             <div className="row">
                                                 <div className="col-lg-3">
-                                                        <img src="images/all-img/madha.png" id='bishopimagesnew' style={{ width: '100%', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', borderRadius: '10px', padding: '10px' }} alt="" className="img-responsive" />
+                                                    <img src="images/all-img/madha.png" id='bishopimagesnew' style={{ width: '100%', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', borderRadius: '10px', padding: '10px' }} alt="" className="img-responsive" />
                                                 </div>
-                                                <div className="col-lg-9">
-                                                    <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}><img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} />The Indian history Christianity reveals that Rayalaseema is the cradle of Catholicism in Andhra Pradesh. The two districts of this region Anantapur and kurnool witness or gave birth to Catholicism in Krishnapuram and Onteddupalle, Polur and Cowlur respectively. The Karnatic Jesuit missionaries sowed the seeds of Christianity in these villages from 1700. They also contributed extensively to Telugu Christian literature. It is recorded that the 1st person accepted Christ in Andra Prades was Rangappa of Sale Caste. Later in 1718 Thumma Rayaappa Reddy was baptized by Fr. LeeGac. As the Holy relics of the Carnatic mission today, we have three tombs of Jesuit missionaries in Krshnapuram.</p>
+                                                <div className="col-lg-9 custom-scrollbar">
+                                                    <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}><img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} />
+                                                        The Diocese of Kurnool, situated in Kurnool town (Kandenavolu), which was once the first capital of the United States of Andhra Pradesh and Telangana, serves as the gateway to the Rayalaseema region and encompasses the Kurnool, Nandyal, Sathysai, and Anantapur districts in Andhra Pradesh, India. Originating from the larger Diocese of Nellore, it was officially established on June 12, 1967, with the appointment of Rev. Msgr. Joseph Rajappa as its inaugural bishop. The onset of Catholicism in the Rayalaseema region can be traced back to the arrival of Jesuits in the early 1700s, who laid the groundwork for the propagation of faith.
+                                                        <br />
+                                                        <br />
+                                                        Individuals such as Rangappa and Thumma Rayaappa Reddy embraced the Catholic faith, marking the origins of Telugu Catholics in the region. Following the suppression of Jesuits in 1773, other missionary groups, including the Paris Foreign Missionary Society and the Mill Hill Fathers, continued to propagate the faith and engage in various temporal and spiritual undertakings. After centuries of missionary work and two decades post-India's independence, the Diocese of Kurnool came into existence.
+                                                        <br />
+                                                        <br />
+                                                        Successive bishops, including Joseph Rajappa, Mathew Cherian Kunnel PIME, and Aruliah, were instrumental in furthering missionary activities, executing projects to promote the faith, and supporting local congregations through educational, healthcare, and community initiatives. Under the leadership of Bishop Johannes Sr., new parishes, churches, the Sinai Retreat Center, St. John’s Residential School, rectories, convents, and community centers were established, accompanied by self-employment initiatives benefiting the disadvantaged.
+                                                        The celebrations of "Yesu Christu Jayanti 2000" were grandly observed, followed by a synod aimed at charting a course for the future. Upon the sudden demise of Bishop Johannes in 2007, Rev. Msgr. Chowrappa temporally assumed the diocesan responsibilities until the appointment of Rev. Msgr. Anthony Poola in 2008. Under his leadership, the diocese saw the establishment of new parishes, churches, rectories, and a prominent school and boarding facility at Gadivemula.</p>
 
-                                                    <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}><img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} />After the withdrawal of the Jesuits in 1773, the Paris Foriegn Missionary Society took over the missionary task and kept alive the faith of the people. From 1875 onwards, the Mill Hill Fathers also labored in the Western parts of the diocese for some time. As a result of their hard work, kurnool was erected as Diocese in 1967. Most Rev. Joseph Rajappa, Most Rev. Matthew Cheriankunnel, Most Rev. S. A. Aruliah and Most Rev. G. Johannes initiated many developmental activities in the fields of evangelization, education, health and social development.</p>
+                                                    <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}>
+                                                        Subsequently, following Rev. Msgr. Poola's transition to the role of Archbishop of Hyderabad and the first Cardinal from the Telugu region, Rev. Msgr. Chowrappa again assumed the temporary leadership of the diocese for four years. After a subsequent four-year vacancy, Pope Francis appointed Rev. Msgr. Gorantla Johannes OCD as the 5th Bishop of the Diocese of Kurnool. His consecration on April 24, 2024, heralded a new era for the diocese.
+                                                        Bishop Johannes brings a wealth of expertise as a linguist, renowned scholar, and prolific writer on Carmelite spirituality, biblical religious and spiritual matters, and holds a Doctorate in Biblical Theology with ongoing pursuits towards another doctoral degree in spiritual theology. His extensive experience includes serving as the Provincial of Andhra Province of OCD on two occasions, a parish priest in Hyderabad, Presidency of the AP RCRI, and impactful roles in various commissions, along with serving as a Rector and Assistant General in Rome, coupled with teaching scripture at prestigious institutes.
+                                                        <br />
+                                                        <br />
+                                                        With Bishop Johannes's profound knowledge, intellectual acumen, extensive experience, and steadfast leadership, the Diocese of Kurnool is poised to make a meaningful impact both locally and globally within the Catholic Church. Encompassing an area of around 43,000 km² or 16,602 square miles, with a predominantly Telugu-speaking population of approximately 10.37 million. The diocese has 105,219 Catholics. The diocese is organized into 5 vicariates or deaneries, with 69 parishes, 4 quasi-parishes, and 273 mission stations. It comprises 85 diocesan priests, 70 religious priests, 14 seminarians, 14 religious brothers, 438 religious sisters, and 278 catechists. Bishop Johannes's leadership is anticipated to further the Diocese of Kurnool's advancement and its contributions to the global Catholic Church.
+                                                        The diocese has 83 schools including 39 primary schools, 40 high schools, and 4 colleges as well as 69 social service institutions covering hospitals, medical centers, and hostels.  Religious congregations operate an additional 62 schools consisting of 39 primary schools, 20 high schools, and 3 colleges. Every year the diocese welcomes 1907 baptisms and 241 marriages in the Church. Around 70% of people attend the Sunday masses across the parishes in the Diocese. There are 380 lay associations, including the Legion of Mary and the St. Vincent de Paul Society.
+                                                        <br />
+                                                        <br />
+                                                        The Diocese of Kurnool is often overlooked, but it has played a crucial role in the history of Catholicism in Andhra Pradesh. Over the years, it has diligently worked to grow the community and maintain a strong faith despite facing many challenges. This couldn't have been achieved without the dedicated shepherds, administrators, clergy, consecrated men and women, as well as the members of the community.
+                                                    </p>
 
                                                     <Link to="/history" className="btn btn-primary" id='btnmore'>
                                                         More Information
@@ -177,6 +195,9 @@ const Whoweare = () => {
 
                                                                 <dt><i className="fa fa-language"></i> Languages Spoken:</dt>
                                                                 <dd>Telugu, Hindi, Malayalam, English, Italian, German and Spanish</dd>
+
+                                                                <dt><i className="fa fa-users"></i> Parents Name:</dt>
+                                                                <dd>Gorantla Chinnappa and Rojanamma</dd>
                                                             </dl>
                                                         </div>
                                                         <div className="col-6">
@@ -185,10 +206,15 @@ const Whoweare = () => {
                                                                 <dd>10 January 2002</dd>
 
                                                                 <dt><i className="fa fa-book"></i> Studies:</dt>
-                                                                <dd><img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} /> BA Philosophy (Gold Medal in MG University, Kerala); B. Th from Teresianum, Rome; Licentiate in Sacred Scripture SSL from Biblicum, Rome; Doctorate in Biblical Theology STD from the Gregorian University, Rome.</dd>
-
-                                                                <dt><i className="fa fa-users"></i> Parents Name:</dt>
-                                                                <dd>Gorantla Chinnappa and Rojanamma</dd>
+                                                                <dd>
+                                                                    <img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} /> BA Philosophy (Gold Medal in MG University, Kerala)
+                                                                    <br />
+                                                                    <img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} /> B. Th from Teresianum, Rome
+                                                                    <br />
+                                                                    <img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} /> Licentiate in Sacred Scripture SSL from Biblicum, Rome.
+                                                                    <br />
+                                                                    <img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} /> Doctorate in Biblical Theology STD from the Gregorian University, Rome.
+                                                                </dd>
                                                             </dl>
                                                         </div>
                                                     </div>

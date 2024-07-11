@@ -12,6 +12,7 @@ import { ThreeDots } from "react-loader-spinner";
 import HomeSections from "./components/homesections";
 import Whoweare from "./components/Whoweare";
 import Borderfooter from "./components/Borderfooter";
+import GalleryImages from "./components/Gallery";
 
 function Home() {
   const [isLoading, setLoading] = useState(true);
@@ -26,8 +27,6 @@ function Home() {
         
         if (storedHomedata) {
           const parsedStoredData = JSON.parse(storedHomedata);
-
-          // Compare the fetched data with the stored data
           if (JSON.stringify(data) !== JSON.stringify(parsedStoredData)) {
             setHomedata(data);
             sessionStorage.setItem('homedata', JSON.stringify(data));
@@ -81,6 +80,7 @@ function Home() {
           <Whoweare />
           <LatestNews projectdata={homedata?.newsdata} />
           <Youtube gallerydata={homedata?.gallerydata} />
+          <GalleryImages />
           <Borderfooter />
           <Footer footerdata={homedata?.footerdata} />
         </>

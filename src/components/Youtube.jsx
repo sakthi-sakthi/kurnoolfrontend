@@ -1,8 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { ApiUrl } from "../components/API/Api";
 import './css/youtube.css';
-import ImageGallery from "react-image-gallery";
 
-const Youtube = ({ gallerydata }) => {
+const Youtube = () => {
+  const [newsletterdata, setNewsletterdata] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`${ApiUrl}/get/newsletter`)
+      .then((response) => {
+        const allData = response?.data?.data;
+        const latestData = allData.slice(0, 3);
+        setNewsletterdata(latestData);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching newsletter data:", error);
+      });
+  }, []);
   useEffect(() => {
     const video = document.getElementById("video");
     const circlePlayButton = document.getElementById("circle-play-b");
@@ -34,14 +51,14 @@ const Youtube = ({ gallerydata }) => {
         });
       };
     }
-  }, [gallerydata]);
+  }, [newsletterdata]);
 
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6">
           <div className="section-heading">
-            <h2 className="entry-title mt-5">Latest Video</h2>
+            <h2 className="entry-title mt-3">Latest Video</h2>
           </div>
           <div className="video-wrapper mb-4">
             <div className="video-container" id="video-container">
@@ -76,23 +93,56 @@ const Youtube = ({ gallerydata }) => {
         </div>
         <div className="col-md-6">
           <div className="section-heading">
-            <h2 className="entry-title mt-5">Our Gallery</h2>
+            <h2 className="entry-title mt-3">Monthly Newsletter</h2>
           </div>
-          <div className="gallery mb-5">
-            {gallerydata && gallerydata.length > 0 ? (
-              <ImageGallery
-                items={gallerydata?.map((image) => ({
-                  original: image.image || "",
-                  thumbnail: image.image || "",
-                }))}
-              />
-            ) : (
-              <div>No gallery data available</div>
-            )}
-          </div>
+          {loading ? (
+            <div className="d-flex">
+              <div className="mt-2 mb-3">Loading...</div>
+            </div>
+          ) : (
+            <div className="newsletter mb-5">
+              {newsletterdata && newsletterdata.length > 0 ? (
+                newsletterdata?.map((newsletter) => (
+                  <div
+                    key={newsletter?.id}
+                    className="card shadow mb-2"
+                    style={{ maxWidth: "585px", height: "100px" }}
+                  >
+                    <div className="card-body text-center">
+                      <div className="d-flex justify-content-between align-items-center">
+                        <img
+                          src="images/all-img/pdf.png"
+                          alt="PDF Icon"
+                          className="mb-5"
+                          style={{ width: "50px" }}
+                        />
+                        <div className="text-center">
+                          <h5 className="card-title mb-2">
+                            {newsletter?.title}
+                          </h5>
+                          <p className="card-text mb-1">
+                            {newsletter?.eventdate}
+                          </p>
+                        </div>
+                        <a
+                          href={newsletter?.file_url}
+                          className="btn btn-sm btn-success mb-5 mr-2 text-white"
+                          download
+                        >
+                          Download
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="mt-2 mb-3">No newsletter available</div>
+              )}
+            </div>
+          )}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

@@ -1,41 +1,251 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './Newsletter.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { ApiUrl } from '../../components/API/Api';
 
-const Newsletter = () => {
-  const [newsletters, setNewsletters] = useState([]);
+function NewsLetter() {
+  const [pdfLinks, setPdfLinks] = useState([]);
+  const [archivedPdfLinks, setArchivedPdfLinks] = useState([]);
+  const [mainAccordionOpen, setMainAccordionOpen] = useState(true);
+  const [subAccordionOpen, setSubAccordionOpen] = useState(1);
+  const [loading, setLoading] = useState(true);
+
+  const handleMainAccordionClick = () => {
+    setMainAccordionOpen((prevState) => !prevState);
+  };
+
+  const handleSubAccordionClick = (index) => {
+    if (index === subAccordionOpen) {
+      setSubAccordionOpen(0);
+    } else {
+      setSubAccordionOpen(index);
+    }
+  };
+
+  const handleMouseEnter = (event) => {
+    event.currentTarget.style.overflowY = "scroll";
+  };
+
+  const handleMouseLeave = (event) => {
+    event.currentTarget.style.overflowY = "hidden";
+  };
 
   useEffect(() => {
-    const fetchNewsletters = async () => {
-      const response = await axios.get(`${ApiUrl}/get/newsletter`);
-      setNewsletters(response.data.data);
-    };
-    fetchNewsletters();
+    axios
+      .get(`${ApiUrl}/get/newsletter`)
+      .then((response) => {
+        const allPdfLinks = response?.data?.data;
+
+        const currentYearPdfLinks = [];
+        const archivedPdfLinks = [];
+
+        const currentDate = new Date();
+
+        allPdfLinks.forEach((item) => {
+          const dateParts = item.eventdate.split('-');
+          const eventDate = new Date(`${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`);
+
+          if (eventDate.getFullYear() === currentDate.getFullYear()) {
+            currentYearPdfLinks.push(item);
+          } else {
+            archivedPdfLinks.push(item);
+          }
+        });
+
+        setPdfLinks(currentYearPdfLinks);
+        setArchivedPdfLinks(archivedPdfLinks);
+
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   }, []);
 
+  if (pdfLinks.length > 0) {
+    pdfLinks.sort((a, b) => new Date(b.eventdate) - new Date(a.eventdate));
+  }
+
+  const currentYear = new Date().getFullYear();
+
   return (
-    <div className='container'>
-      <h2 className="text-center mb-4 mt-3">Monthly Newsletter</h2>
-      <div className='row'>
-        {newsletters?.map(newsletter => (
-          <div className='col-lg-4 col-md-6 col-sm-12 mb-4' key={newsletter.id}>
-            <div className="custom-card">
-              <img src={"images/all-img/newsletter.avif"} className="custom-card-img" alt={newsletter.title} />
-              <div className="custom-card-body">
-                <h5 className="custom-card-title text-black"><i className="fa fa-edit"></i> {newsletter.title}</h5>
-                <p className="custom-card-text text-black mt-4"><i className="fa fa-calendar"></i> {newsletter.eventdate}</p>
-                {newsletter?.file_url && (
-                    <p className="custom-card-text text-black text-decoration-none"><i className="fa fa-download"></i> <a href={newsletter.file_url} style={{ textDecoration: 'none',fontSize: '14px' }} target="_blank" rel="noreferrer">{newsletter.file_url.split('/').pop()}</a></p>
-                )}
-                <a href={newsletter.file_url} target="_blank" rel="noreferrer" className="btn btn-success text-white btn-sm"><i className="fa fa-download"></i> Download PDF</a>
+    <>
+      <div className="container subpage">
+        <br />
+        <h3 className="text-center mb-4">Monthly News Letter</h3>
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="row">
+              <div
+                className="col-12 col-lg-12 custom-scrollbar"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}>
+                <div className="accordion" id="newsletterAccordion">
+                  <div className="accordion-item mb-4">
+                    <h2 className="accordion-header" onClick={handleMainAccordionClick}>
+                      <button
+                        className="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#allNewsletters"
+                        aria-expanded="true"
+                        aria-controls="allNewsletters"
+                        style={{ fontWeight: "bold" }}>
+                        NewsLetter - {new Date().getFullYear()}
+                      </button>
+                    </h2>
+                    <div
+                      id="allNewsletters"
+                      className={`accordion-collapse collapse ${mainAccordionOpen ? "show" : ""}`}
+                      aria-labelledby="allNewsletters"
+                      data-parent="#newsletterAccordion">
+                      <div className="accordion-body">
+                        {!loading && pdfLinks.length > 0 ? (
+                          pdfLinks
+                            .reduce((acc, pdf) => {
+                              const existingMonth = acc.find(
+                                (item) => item.month === pdf.month
+                              );
+                              if (existingMonth) {
+                                existingMonth.pdfs.push(pdf);
+                              } else {
+                                acc.push({ month: pdf.month, pdfs: [pdf] });
+                              }
+                              return acc;
+                            }, [])
+                            .map((monthGroup, index) => (
+                              <div key={index}>
+                                <div className="accordion-item">
+                                  <h2
+                                    className="accordion-header"
+                                    onClick={() =>
+                                      handleSubAccordionClick(index + 1)
+                                    }>
+                                    <button
+                                      className="accordion-button"
+                                      type="button"
+                                      data-bs-toggle="collapse"
+                                      data-bs-target={`#collapse${index}`}
+                                      aria-expanded={index === 0 ? "true" : "false"}
+                                      aria-controls={`collapse${index}`}
+                                      onClick={(event) => {
+                                        const clickedElement = event.target;
+                                        const isSubAccordion = clickedElement.closest(
+                                          ".accordion-collapse"
+                                        );
+
+                                        if (!isSubAccordion) {
+                                          const mainAccordion = document.getElementById(
+                                            "allNewsletters"
+                                          );
+                                          if (mainAccordion) mainAccordion.classList.remove("show");
+                                        }
+                                      }}
+                                      style={{ fontWeight: "bold" }}>
+                                      {currentYear}
+                                    </button>
+                                  </h2>
+                                  <div
+                                    id={`collapse${index}`}
+                                    className={`accordion-collapse collapse ${subAccordionOpen === index + 1 ? "show" : ""
+                                      }`}
+                                    aria-labelledby={`heading${index}`}
+                                    data-parent="#newsletterAccordion">
+                                    <div className="accordion-body">
+                                      {monthGroup.pdfs?.map((pdf, pdfIndex) => (
+                                        <div key={pdfIndex} style={{ marginBottom: pdfIndex === monthGroup.pdfs.length - 1 ? "0" : "20px" }}>
+                                          <p>
+                                            <b>{pdf?.title} </b>
+                                          </p>
+                                          <p>{pdf?.eventdate}</p>
+                                          <a
+                                            href={pdf?.file_url}
+                                            rel="noopener noreferrer"
+                                            className="btn btn-sm"
+                                            target="_blank"
+                                            style={{
+                                              backgroundColor: "#012c6d",
+                                              color: "#e0ab08",
+                                              textDecoration: "none",
+                                            }}>
+                                            <FontAwesomeIcon icon={faDownload} /> Download
+                                          </a>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            ))
+                        ) : (
+                          loading ? (
+                            <div className="text-center">
+                              <div className="text-center font-weight-bold">Loading Data...</div>
+                            </div>
+                          ) : (
+                            <p className="text-center font-weight-bold" style={{ fontSize: "16px" }}>
+                              No Newsletters Available
+                            </p>
+                          )
+                        )}
+
+                      </div>
+                    </div>
+                  </div>
+                  {/* Archived Newsletters */}
+                  {archivedPdfLinks?.length > 0 && (
+                    <div className="accordion-item mb-4">
+                      <h2 className="accordion-header" onClick={() => handleSubAccordionClick(0)}>
+                        <button
+                          className="accordion-button"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#archiveNewsletters"
+                          aria-expanded="false"
+                          aria-controls="archiveNewsletters"
+                          style={{ fontWeight: "bold" }}>
+                          Archived NewsLetter - {new Date(archivedPdfLinks[0]?.eventdate).getFullYear()}
+                        </button>
+                      </h2>
+                      <div
+                        id="archiveNewsletters"
+                        className={`accordion-collapse collapse ${subAccordionOpen === 0 ? "show" : ""}`}
+                        aria-labelledby="archiveNewsletters"
+                        data-parent="#newsletterAccordion">
+                        <div className="accordion-body">
+                          {archivedPdfLinks?.map((pdf, pdfIndex) => (
+                            <div key={pdfIndex}>
+                              <p>
+                                <b>{pdf?.title} </b>
+                              </p>
+                              <p>{pdf?.eventdate}</p>
+                              <a
+                                href={pdf?.file_url}
+                                rel="noopener noreferrer"
+                                className="btn btn-sm"
+                                target="_blank"
+                                style={{
+                                  backgroundColor: "#012c6d",
+                                  color: "#e0ab08",
+                                  textDecoration: "none",
+                                }}>
+                                <FontAwesomeIcon icon={faDownload} /> Download
+                              </a>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
-        ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
-export default Newsletter;
+export default NewsLetter;

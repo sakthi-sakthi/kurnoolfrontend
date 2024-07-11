@@ -1,5 +1,5 @@
 .card-01 {
-  height: 430px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -19,21 +19,21 @@
 }
 
 .card-img-top {
-  height: 220px;
+  height: 170px !important;
 }
 
 .card-title {
-  height: 33px;
+  height: 37px;
   overflow: hidden;
-  font-size: 14px;
+  font-size: 15px;
   text-overflow: ellipsis;
   text-decoration: none !important;
 }
 
 .card-text {
   flex-grow: 1;
-  height: 50px;
+  height: 45px;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 15px;
+  font-size: 14px;
 }
