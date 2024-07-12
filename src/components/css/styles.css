@@ -44,7 +44,7 @@ ul li a {
   ul li:active,
   .mobileview ul li:active {
     background: #e0ab08;
-    width: 16rem !important;
+    /* width: 16rem !important; */
     height: 38px;
   }
 }
