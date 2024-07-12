@@ -5,7 +5,6 @@ import moment from 'moment';
 import styled from 'styled-components';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
-import Dropdown from 'react-bootstrap/Dropdown';
 import { ApiUrl } from '../../components/API/Api';
 
 const StyledCalendarContainer = styled.div`
@@ -108,7 +107,6 @@ const DailyEventsCalendar = () => {
   const localizer = momentLocalizer(moment);
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -145,49 +143,11 @@ const DailyEventsCalendar = () => {
     </>
   );
 
-  const handleYearChange = (year) => {
-    setCurrentYear(year);
-  };
-
-  const yearOptions = Array.from({ length: 31 }, (_, i) => 2000 + i);
-
-  const navigateToYear = (date) => {
-    const newDate = new Date(date);
-    newDate.setFullYear(currentYear);
-    return newDate;
-  };
-
   return (
     <>
       <StyledCalendarContainer>
         <StyledCalendarHeader>
-          <CalendarTitle>Daily Calendar</CalendarTitle>
-          <Dropdown>
-            <Dropdown.Toggle variant="secondary" id="year-dropdown">
-              {currentYear}
-            </Dropdown.Toggle>
-            <Dropdown.Menu
-              style={{
-                maxHeight: '440px',
-                overflowY: 'auto',
-                scrollbarWidth: 'thin',
-                msOverflowStyle: 'none',
-                scrollbarColor: '#888 transparent',
-              }}
-            >
-              <div className="scrollbar-track">
-                <div className="scrollbar-thumb" style={{ background: '#888' }} />
-              </div>
-              {yearOptions?.map((year) => (
-                <Dropdown.Item
-                  key={year}
-                  onClick={() => handleYearChange(year)}
-                >
-                  {year}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
+          <CalendarTitle>Bishop Monthly Programs</CalendarTitle>
         </StyledCalendarHeader>
         <StyledCalendar
           localizer={localizer}
@@ -196,7 +156,7 @@ const DailyEventsCalendar = () => {
           endAccessor="end"
           style={{ height: 1000 }}
           onSelectEvent={handleEventClick}
-          defaultDate={navigateToYear(new Date())}
+          defaultDate={new Date()}
           defaultView="month"
           views={['month', 'week', 'day', 'agenda']}
           showMultiDayTimes

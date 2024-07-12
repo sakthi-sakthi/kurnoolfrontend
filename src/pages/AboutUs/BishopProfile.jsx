@@ -71,7 +71,6 @@ const BishopProfile = () => {
                                 <div className="tab-content">
                                     {activeTab === 'study1' && (
                                         <div id="study1" className="tab-pane active">
-                                            <h4 className="mb-3">Studies :</h4>
                                             <div className="row">
                                                 <div className="col-lg-12">
                                                     <div className="table-responsive">
@@ -118,7 +117,6 @@ const BishopProfile = () => {
                                     )}
                                     {activeTab === 'offices2' && (
                                         <div id="offices2" className="tab-pane active">
-                                            <h4 className="mb-3">Some of the offices held :</h4>
                                             <div className="row">
                                                 <div className="col-lg-12">
                                                     <div className="table-responsive">
@@ -194,7 +192,6 @@ const BishopProfile = () => {
                                     )}
                                     {activeTab === 'publication3' && (
                                         <div id="publication3" className="tab-pane active">
-                                            <h4 className="mb-3">Publications :</h4>
                                             <div className="row">
                                                 <div className="col-lg-12">
                                                     <div className="table-responsive">
