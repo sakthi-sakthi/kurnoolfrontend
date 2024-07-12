@@ -187,12 +187,12 @@ const Header = ({ menudata }) => {
                   <li key={index} className={menuItem.children ? 'menu-item-has-children' : 'menu-item'} style={{ display: 'block', position: 'relative' }}>
                     {menuItem.children ? (
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <img src='images/all-img/tick.png' style={{ width: '15px', height: '15px', marginRight: '5px' }} alt='tick'/>
+                        <img src='images/all-img/tick.png' style={{ width: '13px', height: '13px', marginRight: '5px' }} alt='tick'/>
                         <a href={() => false} onClick={() => handleMenuClick(index)} style={{ display: 'block', padding: '10px', textDecoration: 'none', color: 'black' }}>{menuItem.label}</a>
                       </div>
                     ) : (
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <img src='images/all-img/tick.png' style={{ width: '15px', height: '15px', marginRight: '5px' }} alt='tick'/>
+                        <img src='images/all-img/tick.png' style={{ width: '13px', height: '13px', marginRight: '5px' }} alt='tick'/>
                         <a href={menuItem.url} style={{ display: 'block', padding: '10px', textDecoration: 'none', color: 'black' }}>{menuItem.label}</a>
                       </div>
                     )}
@@ -225,6 +225,7 @@ const Header = ({ menudata }) => {
                   </li>
                 ))}
               </ul>
+              <p className="text-center mt-4 mb-4" style={{ fontSize: '13px' }}>© {new Date().getFullYear()} Diocese of Kurnool, All Rights Reserved. Powered by<a href='https://boscosofttech.com/' target='_blank' rel="noopener noreferrer"> BoscoSoft Technologies </a></p>
             </div>
           </div>
         </div>

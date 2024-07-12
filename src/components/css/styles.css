@@ -43,8 +43,7 @@ ul li a {
   ul li a:active,
   ul li:active,
   .mobileview ul li:active {
-    background: #e0ab08;
-    /* width: 16rem !important; */
+    color: #e0ab08;
     height: 38px;
   }
 }
@@ -58,12 +57,10 @@ li:hover>ul {
 li:hover li {
   float: none;
   border-bottom: 1px solid #fff;
-  /* Add a solid line after every sub-menu item */
 }
 
 li:hover li:last-child {
   border-bottom: none;
-  /* Remove the border for the last sub-menu item */
 }
 
 .main-navigation li:hover a {
@@ -167,23 +164,16 @@ ul:after {
 #btnmore {
   background-color: #02c386 !important;
   border: none;
-  animation: step-start 1s infinite;
   font-size: 11px;
   font-weight: 600;
   padding: 10px 20px;
   border-radius: 50px;
   display: inline-block;
-  /* Ensures button behaves correctly in most cases */
   text-align: center;
-  /* Center text within the button */
   white-space: nowrap;
-  /* Prevents text wrapping onto multiple lines */
   max-width: 100%;
-  /* Ensures button doesn't overflow parent container */
   box-sizing: border-box;
-  /* Ensures padding is included in width calculation */
   width: auto;
-  /* Let the button adjust its width based on content */
 }
 
 /* Adjustments for smaller screens */
@@ -194,29 +184,14 @@ ul:after {
   }
 }
 
-/* Example animation */
-@keyframes step-start {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
 
 #btnmore:hover {
   background-color: #e0ab08 !important;
   border: none;
-  animation: step-start 1s infinite;
-}
 
 .navbar ul li a:hover {
   border-bottom: 3px solid #ffbf00;
   border-radius: 0px 0px 5px 5px;
+}
+
 }
