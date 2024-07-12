@@ -2,7 +2,6 @@ ul {
   list-style: none;
   padding: 0;
   margin-bottom: 0px !important;
-  /* background: #0d4571; */
   text-align: justify;
 }
 
@@ -10,7 +9,16 @@ ul li {
   display: block;
   position: relative;
   float: left;
-  /* background: #0d4571; */
+}
+
+
+@media screen and (max-width: 768px) {
+  ul li {
+    display: block;
+    position: relative;
+    float: none;
+    width: 100%;
+  }
 }
 
 .main-navigation li.active {
@@ -36,7 +44,7 @@ ul li a {
   ul li:active,
   .mobileview ul li:active {
     background: #e0ab08;
-    /* width: 16rem !important; */
+    width: 16rem !important;
     height: 38px;
   }
 }

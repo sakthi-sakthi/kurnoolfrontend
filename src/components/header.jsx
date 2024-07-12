@@ -1,52 +1,24 @@
-import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import "./css/styles.css";
+import React, { useState } from 'react';
+import { Collapse } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import './css/styles.css';
 
-function Header({menudata}) {
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const navigate = useNavigate();
-  const toggleMobileMenu = (isOpen) => {
-    setMobileMenuOpen(isOpen);
-  };
-  const [openSubMenu, setOpenSubMenu] = useState(null);
-  const [openmultiSubMenu, setopenmultiSubMenu] = useState(null);
+const Header = ({ menudata }) => {
+  const location = useLocation();
+  const url = location.pathname;
 
-  const handleSubMenuToggle = (id) => {
-    setOpenSubMenu((prevOpenSubMenu) => (prevOpenSubMenu === id ? null : id));
-  };
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
 
-  const handlemultiSubMenuToggle = (id) => {
-    setopenmultiSubMenu((pre) => (pre === id ? null : id));
+  const handleMenuClick = (index) => {
+    setActiveMenu(activeMenu === index ? null : index);
   };
 
-  const renderSubMenu = (subMenuData) => {
-    return (
-      <ul className="dropdown-menu">
-        {subMenuData.map((subItem) => (
-          <li key={subItem.id}>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a
-              className="dropdown-item"
-              onClick={() => {
-                handlemultiSubMenuToggle(subItem.id);
-                !subItem.subchildren && handleNavigate(subItem.url);
-              }}
-            >
-              {subItem.label}
-            </a>
-            {subItem.subchildren &&
-              openmultiSubMenu === subItem.id &&
-              renderSubMenu(subItem.subchildren)}
-          </li>
-        ))}
-      </ul>
-    );
+  const handleSubMenuClick = (index) => {
+    setActiveSubMenu(activeSubMenu === index ? null : index);
   };
 
-  const handleNavigate = (link) => {
-    navigate(link);
-    toggleMobileMenu(false);
-  };
 
   return (
     <>
@@ -110,7 +82,7 @@ function Header({menudata}) {
                     </a>
                   </div>
                 </div>
-                <button className="btn btn-primary btn-sm donate-btn ml-3" id='btnmore'>
+                <button className="btn btn-success btn-sm donate-btn ml-3" id='btnmore'>
                   <i className="fas fa-donate"></i> Donation
                 </button>
               </div>
@@ -147,21 +119,31 @@ function Header({menudata}) {
               id="navbarNav"
             >
               <ul className="main-navigation">
-                {menudata?.map((item) => (
-                  <li key={item.id}>
-                    <NavLink to={item.url}>{item.label}</NavLink>
-                    {item.children && (
-                      <ul>
-                        {item.children.map((child) => (
-                          <li key={child.id}>
-                            <NavLink to={child.url}>{child.label}</NavLink>
-                            {child.subchildren && (
-                              <ul>
-                                {child.subchildren.map((subchild) => (
-                                  <li key={subchild.id}>
-                                    <NavLink to={`${subchild.url}`}>
-                                      {subchild.label}
-                                    </NavLink>
+                {menudata?.map((menuItem, index) => (
+                  <li key={index} className={menuItem.children ? 'menu-item-has-children' : 'menu-item'}>
+                    {menuItem.children ? (
+                      <Link to={menuItem.url} className={`${menuItem.children.some(child => url.includes(child.url)) ? "activemain" : ""}`}>
+                        {menuItem.label}
+                      </Link>
+                    ) : (
+                      <Link to={menuItem.url} className={`${url === menuItem.url ? "activemain" : ""}`} style={{ whiteSpace: 'nowrap' }} >
+                        {menuItem.label}
+                      </Link>
+                    )}
+                    {menuItem.children && (
+                      <ul className="sub-menu">
+                        {menuItem.children?.map((subItem, subIndex) => (
+                          <li key={subIndex} className={subItem.subchildren ? 'menu-item-has-children' : 'menu-item'}>
+                            <Link to={subItem.url}>
+                              {subItem.label}
+                            </Link>
+                            {subItem.subchildren && (
+                              <ul className="sub-menu">
+                                {subItem.subchildren.map((childSubItem, childSubIndex) => (
+                                  <li key={childSubIndex} className="menu-item">
+                                    <Link to={childSubItem.url}>
+                                      {childSubItem.label}
+                                    </Link>
                                   </li>
                                 ))}
                               </ul>
@@ -187,57 +169,63 @@ function Header({menudata}) {
           className="btn btn-success"
           type="button"
           data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasExample"
-          aria-controls="offcanvasExample"
-          onClick={() => toggleMobileMenu(true)}
+          data-bs-target="#offcanvasScrolling"
+          aria-controls="offcanvasScrolling"
           style={{ background: "#f6c93f" }}
         >
           <i className="fa fa-bars"></i>
         </button>
-        <div
-          className={`offcanvas offcanvas-start ${isMobileMenuOpen ? "show" : " "
-            }`}
-          tabIndex="-1"
-          data-bs-backdrop={false}
-          id="offcanvasExample"
-          aria-labelledby="offcanvasExampleLabel"
-        >
+        <div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabIndex={-1} id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
           <div className="offcanvas-header">
-            <h5 className="offcanvas-title" id="offcanvasExampleLabel">
-              Diocese of Kurnool
-            </h5>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-              onClick={() => toggleMobileMenu(false)}
-            ></button>
+            <h5 className="text-center">Diocese of Kurnool - Andhra Pradesh</h5>
+            <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
-          <div className="offcanvas-body mobileview">
-            <ul className="nav">
-              {menudata?.map((item) => (
-                <li
-                  key={item.id}
-                  className={`nav-item dropdown ${openSubMenu === item.id ? "active" : ""
-                    }`}
-                >
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a
-                    className={`nav-link`}
-                    onClick={() => {
-                      handleSubMenuToggle(item.id);
-                      !item?.children?.length > 0 && handleNavigate(item?.url);
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                  {item.children &&
-                    openSubMenu === item.id &&
-                    renderSubMenu(item.children)}
-                </li>
-              ))}
-            </ul>
+          <div className="offcanvas-body">
+            <div className="nav-bar">
+              <ul style={{ listStyleType: 'none', padding: 0 }}>
+                {menudata?.map((menuItem, index) => (
+                  <li key={index} className={menuItem.children ? 'menu-item-has-children' : 'menu-item'} style={{ display: 'block', position: 'relative' }}>
+                    {menuItem.children ? (
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <img src='images/all-img/tick.png' style={{ width: '15px', height: '15px', marginRight: '5px' }} alt='tick'/>
+                        <a href={() => false} onClick={() => handleMenuClick(index)} style={{ display: 'block', padding: '10px', textDecoration: 'none', color: 'black' }}>{menuItem.label}</a>
+                      </div>
+                    ) : (
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <img src='images/all-img/tick.png' style={{ width: '15px', height: '15px', marginRight: '5px' }} alt='tick'/>
+                        <a href={menuItem.url} style={{ display: 'block', padding: '10px', textDecoration: 'none', color: 'black' }}>{menuItem.label}</a>
+                      </div>
+                    )}
+                    {menuItem.children && (
+                      <Collapse in={activeMenu === index}>
+                        <ul className="sub-menu" style={{ listStyleType: 'none', padding: 0, position: 'absolute', top: '100%', left: '0', zIndex: 1, backgroundColor: 'lightgray', borderRadius: '5px', boxShadow: '0 2px 5px rgba(0,0,0,0.2)' }}>
+                          {menuItem.children.map((subItem, subIndex) => (
+                            <li key={subIndex} className={subItem.subchildren ? 'menu-item-has-children' : 'menu-item'} style={{ display: 'block', position: 'relative' }}>
+                              {subItem.subchildren ? (
+                                <a href={() => false} onClick={(e) => { e.preventDefault(); handleSubMenuClick(subIndex); }} style={{ display: 'block', padding: '10px', textDecoration: 'none', color: 'black' }}>{subItem.label}</a>
+                              ) : (
+                                <a href={subItem.url} style={{ display: 'block', padding: '10px', textDecoration: 'none', color: 'black' }}>{subItem.label}</a>
+                              )}
+                              {subItem.subchildren && (
+                                <Collapse in={activeSubMenu === subIndex}>
+                                  <ul className="sub-menu" style={{ listStyleType: 'none', padding: 0, position: 'absolute', top: '0', left: '100%', zIndex: 1, backgroundColor: 'lightgray', borderRadius: '5px', boxShadow: '0 2px 5px rgba(0,0,0,0.2)' }}>
+                                    {subItem.subchildren.map((childSubItem, childSubIndex) => (
+                                      <li key={childSubIndex} className="menu-item" style={{ display: 'block' }}>
+                                        <a href={childSubItem.url} style={{ display: 'block', padding: '10px', textDecoration: 'none', color: 'black' }}>{childSubItem.label}</a>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </Collapse>
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      </Collapse>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
