@@ -225,7 +225,10 @@ const Header = ({ menudata }) => {
                   </li>
                 ))}
               </ul>
-              <p className="text-center mt-4 mb-4" style={{ fontSize: '13px' }}>© {new Date().getFullYear()} Diocese of Kurnool, All Rights Reserved. Powered by<a href='https://boscosofttech.com/' target='_blank' rel="noopener noreferrer"> BoscoSoft Technologies </a></p>
+              <div className="copyright" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginTop: '1rem', marginBottom: '1rem' }}>
+                <p className="text-center" style={{ fontSize: '13px', color: '#999' }}> &copy; {new Date().getFullYear()} Diocese of Kurnool</p>
+                <p className="text-center" style={{ fontSize: '13px', color: '#999' }}>Powered by <a href='https://boscosofttech.com/' target='_blank' rel="noopener noreferrer" style={{ color: '#666' }}>BoscoSoft Technologies</a></p>
+              </div>
             </div>
           </div>
         </div>
