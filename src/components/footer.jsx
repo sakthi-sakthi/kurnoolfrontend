@@ -60,19 +60,23 @@ function Footer({footerdata}) {
                     <ul>
                       <li>
                         <i className="fa fa-angle-right" />
-                        <Link to="/">The Holy See (Vatican)</Link>
+                        <Link to="https://www.vatican.va/content/vatican/en.html" target="_blank" rel="noopener noreferrer">The Holy See (Vatican)</Link>
                       </li>
                       <li>
                         <i className="fa fa-angle-right" />
-                        <Link to="/">Catholic Bishop's Conference of India</Link>
+                        <Link to="https://cbci.in/#1" target="_blank" rel="noopener noreferrer">Catholic Bishop's Conference of India</Link>
                       </li>
                       <li>
                         <i className="fa fa-angle-right" />
-                        <Link to="/">Conference of Catholic Bishop's of India</Link>
+                        <Link to="https://ccbi.in/" target="_blank" rel="noopener noreferrer">Conference of Catholic Bishop's of India</Link>
                       </li>
                       <li>
                         <i className="fa fa-angle-right" />
-                        <Link to="/">Pontifical Council for the Laity</Link>
+                        <Link to="https://fabc.org/" target="_blank" rel="noopener noreferrer">Federation of Asian Bishop's Conferences</Link>
+                      </li>
+                      <li>
+                        <i className="fa fa-angle-right" />
+                        <Link to="https://www.vatican.va/roman_curia/pontifical_councils/laity/documents/rc_pc_laity_doc_25021999_pclaity_en.html#:~:text=The%20Pontifical%20Council%20for%20the%20Laity%20originated%20from%20a%20proposal,motu%20proprio%C3%82%C3%82%E2%80%9D%20Catholicam%20Christi%20Ecclesiam" target="_blank" rel="noopener noreferrer">Pontifical Council for the Laity</Link>
                       </li>
                     </ul>
                   </div>
@@ -166,7 +170,7 @@ function Footer({footerdata}) {
             <div style={{ marginBottom: "-17px" }}>
               <p
                 className="text-center"
-                style={{ fontSize: "14px", color: "white" }}
+                style={{ fontSize: "14px", color: "white", marginTop:"10px"  }}
               >
                 Copyright © {currentYear} Diocese of Kurnool, All
                 rights reserved. Powered by
