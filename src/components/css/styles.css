@@ -195,3 +195,10 @@ ul:after {
 }
 
 }
+
+@media only screen and (max-width: 767px) {
+  #sp-section-3 img {
+    height: 50px;
+    width: 100% !important;
+  }
+}

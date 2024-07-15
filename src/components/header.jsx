@@ -90,9 +90,16 @@ const Header = ({ menudata }) => {
           </div>
         </div>
         <section id="sp-section-3">
-          <div className="container-fluid col-xs-12 col-sm-12 col-md-12 p-0">
+          <div className="container-fluid col-xs-12 col-sm-12 col-md-12 p-0 d-none d-lg-block">
             <img
               src="images/all-img/updatebanner.jpg"
+              alt="Banner"
+              className="w-100"
+            />
+          </div>
+          <div className="container-fluid col-xs-12 col-sm-12 col-md-12 p-0 d-lg-none">
+            <img
+              src="images/all-img/mainmobile.jpg"
               alt="Banner"
               className="w-100"
             />
