@@ -50,9 +50,10 @@ const LatestNews = ({ projectdata }) => {
                     <br />
                     <br />
                     <h4 className="card-title"><Link to="/">{newsItem?.title || "Title not available"}</Link></h4>
-                    <p className="card-text mt-4">
-                      {newsItem?.content?.split(' ').slice(0, 11).join(' ').concat(newsItem?.content?.split(' ').length > 100 ? '...' : '')}
-                    </p>
+                    <p className="card-text mt-4" dangerouslySetInnerHTML={{
+                      __html: newsItem?.content?.split(' ').slice(0, 11).join(' ') + (newsItem?.content?.split(' ').length > 100 ? '...' : '')
+                    }}
+                    ></p>
                     <Link to={`/all-latest-news?newsid=${encodeURIComponent(btoa(newsItem.id))}`} className="btn btn-primary" id='btnmore'>
                       View More
                     </Link>

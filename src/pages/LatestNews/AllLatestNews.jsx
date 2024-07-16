@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import axios from 'axios';
-import { ApiUrl } from '../../components/API/Api';
-import { Link, useLocation } from 'react-router-dom';
-import './AllLatestNews.css';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import axios from "axios";
+import { ApiUrl } from "../../components/API/Api";
+import { Link, useLocation } from "react-router-dom";
+import "./AllLatestNews.css";
 
 const Container = styled.div`
   max-width: 800px;
@@ -74,10 +74,12 @@ const AllLatestNews = () => {
       try {
         const response = await axios.get(`${ApiUrl}/get/homepagee/sections`);
         const newsData = response.data.data?.newsdata || [];
-        const selected = newsData.find(item => item.category_id === 1 && item.id === newsid);
+        const selected = newsData.find(
+          (item) => item.category_id === 1 && item.id === newsid
+        );
         setSelectedNews(selected || null);
       } catch (error) {
-        console.error('Error fetching news data:', error);
+        console.error("Error fetching news data:", error);
       }
     };
     fetchNewsData();
@@ -91,21 +93,44 @@ const AllLatestNews = () => {
           <div className="row">
             <div className="col-md-12">
               <NewsDetails>
-                <img src={selectedNews.media_url || "images/all-img/noimage.jpg"} alt={selectedNews.title} className="news-image" />
+                <img
+                  src={selectedNews.media_url || "images/all-img/noimage.jpg"}
+                  alt={selectedNews.title}
+                  className="news-image"
+                />
                 <br />
-                <NewsTitle><i className="fa fa-newspaper-o"></i> {selectedNews.title}</NewsTitle>
-                <NewsCategory><i className="fa fa-tag"></i> {selectedNews.category_name}</NewsCategory>
+                <NewsTitle>
+                  <i className="fa fa-newspaper-o"></i> {selectedNews.title}
+                </NewsTitle>
+                <NewsCategory>
+                  <i className="fa fa-tag"></i> {selectedNews.category_name}
+                </NewsCategory>
                 {selectedNews?.file_url && (
                   <NewsCategory>
                     <i className="fa fa-download"></i>
-                    <a href={selectedNews.file_url} target="_blank" rel="noopener noreferrer" className="ml-1">
-                      {selectedNews.file_url.split('/').pop()}
+                    <a
+                      href={selectedNews.file_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ml-1"
+                    >
+                      {selectedNews.file_url.split("/").pop()}
                     </a>
                   </NewsCategory>
                 )}
-                <NewsCategory><i className="fa fa-calendar"></i> {selectedNews.eventdate}</NewsCategory>
-                <NewsContent><i className="fa fa-newspaper-o"></i> {selectedNews.content}</NewsContent>
-                <Link to={'/'} className="btn btn-success btn-sm mt-3 mb-3 text-white" style={{ float: "right" }}><i className="fa fa-home"></i> Go Home</Link>
+                <NewsCategory>
+                  <i className="fa fa-calendar"></i> {selectedNews.eventdate}
+                </NewsCategory>
+                <NewsContent
+                  dangerouslySetInnerHTML={{ __html: selectedNews.content }}
+                ></NewsContent>
+                <Link
+                  to={"/"}
+                  className="btn btn-success btn-sm mt-3 mb-3 text-white"
+                  style={{ float: "right" }}
+                >
+                  <i className="fa fa-home"></i> Go Home
+                </Link>
               </NewsDetails>
             </div>
           </div>

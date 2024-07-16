@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import axios from 'axios';
-import { ApiUrl } from '../../components/API/Api';
-import { Link, useLocation } from 'react-router-dom';
-import './AllNews.css';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import axios from "axios";
+import { ApiUrl } from "../../components/API/Api";
+import { Link, useLocation } from "react-router-dom";
+import "./AllNews.css";
 
 const Container = styled.div`
   max-width: 800px;
@@ -74,10 +74,10 @@ const AllNews = () => {
       try {
         const response = await axios.get(`${ApiUrl}/resource/category/1`);
         const newsData = response.data.data || [];
-        const selected = newsData.find(item => item.id === allnewsid);
+        const selected = newsData.find((item) => item.id === allnewsid);
         setSelectedNews(selected || null);
       } catch (error) {
-        console.error('Error fetching news data:', error);
+        console.error("Error fetching news data:", error);
       }
     };
     fetchNewsData();
@@ -91,14 +91,42 @@ const AllNews = () => {
           <div className="row">
             <div className="col-md-12">
               <NewsDetails>
-                <img src={selectedNews.media_url || "images/all-img/noimage.jpg"} alt={selectedNews.title} className="news-image" />
+                <img
+                  src={selectedNews.media_url || "images/all-img/noimage.jpg"}
+                  alt={selectedNews.title}
+                  className="news-image"
+                />
                 <br />
-                <NewsTitle><i className="fa fa-newspaper-o"></i> {selectedNews.title}</NewsTitle>
-                <NewsCategory><i className="fa fa-tag"></i> {selectedNews.category_name}</NewsCategory>
-                <NewsCategory><i className="fa fa-calendar"></i> {selectedNews.eventdate}</NewsCategory>
-                <NewsCategory><i className="fa fa-download"></i><a href={selectedNews.file_url} target="_blank" rel="noopener noreferrer"> {selectedNews.file_url.split('/').pop()}</a></NewsCategory>
-                <NewsContent dangerouslySetInnerHTML={{ __html: selectedNews.content }}></NewsContent>
-                <Link to={'/'} className="btn btn-success btn-sm mt-3 mb-3 text-white" style={{ float: "right" }}><i className="fa fa-home"></i> Go Home</Link>
+                <NewsTitle>
+                  <i className="fa fa-newspaper-o"></i> {selectedNews.title}
+                </NewsTitle>
+                <NewsCategory>
+                  <i className="fa fa-tag"></i> {selectedNews.category_name}
+                </NewsCategory>
+                <NewsCategory>
+                  <i className="fa fa-calendar"></i> {selectedNews.eventdate}
+                </NewsCategory>
+                <NewsCategory>
+                  <i className="fa fa-download"></i>
+                  <a
+                    href={selectedNews.file_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {" "}
+                    {selectedNews.file_url.split("/").pop()}
+                  </a>
+                </NewsCategory>
+                <NewsContent
+                  dangerouslySetInnerHTML={{ __html: selectedNews.content }}
+                ></NewsContent>
+                <Link
+                  to={"/"}
+                  className="btn btn-success btn-sm mt-3 mb-3 text-white"
+                  style={{ float: "right" }}
+                >
+                  <i className="fa fa-home"></i> Go Home
+                </Link>
               </NewsDetails>
             </div>
           </div>
