@@ -3,6 +3,8 @@ import styled from "styled-components";
 import axios from "axios";
 import { ApiUrl } from "../../components/API/Api";
 import { useLocation } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import "./AllFlashNews.css";
 
 const Container = styled.div`
@@ -16,12 +18,6 @@ const Container = styled.div`
 
 const NewsDetails = styled.div`
   padding: 20px;
-`;
-
-const NewsTitle = styled.h2`
-  font-size: 23px;
-  margin-bottom: 10px;
-  font-weight: 600;
 `;
 
 const NewsCategory = styled.p`
@@ -61,24 +57,40 @@ const NewsContent = styled.div`
     background: #555;
   }
 `;
+
+const Loading = styled.div`
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+`;
+
+const NoData = styled.div`
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+`;
 const AllFlashNews = () => {
   const search = useLocation().search;
   const encryptedId = new URLSearchParams(search).get("flashnewsid");
   const flashnewsid = parseInt(atob(decodeURIComponent(encryptedId)));
 
   const [selectedNews, setSelectedNews] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchNewsData = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(`${ApiUrl}/get/homepagee/sections`);
         const newsData = response.data.data?.newsdata || [];
         const selected = newsData.find(
-          (item) => item.category_id === 9 && item.id === parseInt(flashnewsid)
+          (item) => item.category_id === 9 && item.id === flashnewsid
         );
         setSelectedNews(selected || null);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching news data:", error);
+        setLoading(false);
       }
     };
     fetchNewsData();
@@ -86,9 +98,13 @@ const AllFlashNews = () => {
 
   return (
     <Container className="latest-news-container mt-3">
-      {selectedNews && (
+      {loading ? (
+        <Loading>
+          <FontAwesomeIcon icon={faSpinner} spin size="1x" /> Loading...
+        </Loading>
+      ) : selectedNews ? (
         <div className="container">
-          <h3 className="text-center">Flash News</h3>
+          <h3 className="text-center">{selectedNews.title}</h3>
           <div className="row">
             <div className="col-md-12">
               <NewsDetails>
@@ -98,9 +114,6 @@ const AllFlashNews = () => {
                   className="news-image"
                 />
                 <br />
-                <NewsTitle>
-                  <i className="fa fa-newspaper-o"></i> {selectedNews.title}
-                </NewsTitle>
                 <NewsCategory>
                   <i className="fa fa-tag"></i> {selectedNews.category_name}
                 </NewsCategory>
@@ -127,12 +140,14 @@ const AllFlashNews = () => {
                   style={{ float: "right" }}
                   onClick={() => (window.location.href = "/")}
                 >
-                  <i className="fa fa-home"></i> Go Home
+                  <i className="fa fa-home"></i> Go Back
                 </button>
               </NewsDetails>
             </div>
           </div>
         </div>
+      ) : (
+        <NoData>No Flash News found</NoData>
       )}
     </Container>
   );

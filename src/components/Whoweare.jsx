@@ -113,7 +113,7 @@ const Whoweare = () => {
                                                     <img src="images/all-img/madha.png" id='bishopimagesnew' style={{ width: '100%', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px', borderRadius: '10px', padding: '10px' }} alt="" className="img-responsive" />
                                                 </div>
                                                 <div className="col-lg-9 custom-scrollbar">
-                                                    <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}><img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} />
+                                                    <p style={{ textAlign: 'justify', fontSize: '16px', lineHeight: '25px', letterSpacing: '0.5px' }}>
                                                         The Diocese of Kurnool, situated in Kurnool town (Kandenavolu), which was once the first capital of the United States of Andhra Pradesh and Telangana, serves as the gateway to the Rayalaseema region and encompasses the Kurnool, Nandyal, Sathysai, and Anantapur districts in Andhra Pradesh, India. Originating from the larger Diocese of Nellore, it was officially established on June 12, 1967, with the appointment of Rev. Msgr. Joseph Rajappa as its inaugural bishop. The onset of Catholicism in the Rayalaseema region can be traced back to the arrival of Jesuits in the early 1700s, who laid the groundwork for the propagation of faith.
                                                         <br />
                                                         <br />

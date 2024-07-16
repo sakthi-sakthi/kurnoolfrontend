@@ -3,6 +3,8 @@ import styled from "styled-components";
 import axios from "axios";
 import { ApiUrl } from "../../components/API/Api";
 import { Link, useLocation } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import "./AllLatestNews.css";
 
 const Container = styled.div`
@@ -16,12 +18,6 @@ const Container = styled.div`
 
 const NewsDetails = styled.div`
   padding: 20px;
-`;
-
-const NewsTitle = styled.h2`
-  font-size: 23px;
-  margin-bottom: 10px;
-  font-weight: 600;
 `;
 
 const NewsCategory = styled.p`
@@ -39,7 +35,6 @@ const NewsContent = styled.div`
   word-spacing: 0.5px;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  height: 300px;
   &:hover {
     overflow-y: overlay;
     &::-webkit-scrollbar {
@@ -62,24 +57,40 @@ const NewsContent = styled.div`
   }
 `;
 
+const Loading = styled.div`
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+`;
+
+const NoData = styled.div`
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+`;
+
 const AllLatestNews = () => {
   const search = useLocation().search;
   const encryptedId = new URLSearchParams(search).get("newsid");
   const newsid = parseInt(atob(decodeURIComponent(encryptedId)));
 
   const [selectedNews, setSelectedNews] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchNewsData = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(`${ApiUrl}/get/homepagee/sections`);
         const newsData = response.data.data?.newsdata || [];
         const selected = newsData.find(
           (item) => item.category_id === 1 && item.id === newsid
         );
         setSelectedNews(selected || null);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching news data:", error);
+        setLoading(false);
       }
     };
     fetchNewsData();
@@ -87,9 +98,13 @@ const AllLatestNews = () => {
 
   return (
     <Container className="latest-news-container mt-3">
-      {selectedNews && (
+      {loading ? (
+        <Loading>
+          <FontAwesomeIcon icon={faSpinner} spin size="1x" /> Loading...
+        </Loading>
+      ) : selectedNews ? (
         <div className="container">
-          <h3 className="text-center">Latest News</h3>
+          <h4 className="text-center">{selectedNews.title}</h4>
           <div className="row">
             <div className="col-md-12">
               <NewsDetails>
@@ -99,9 +114,6 @@ const AllLatestNews = () => {
                   className="news-image"
                 />
                 <br />
-                <NewsTitle>
-                  <i className="fa fa-newspaper-o"></i> {selectedNews.title}
-                </NewsTitle>
                 <NewsCategory>
                   <i className="fa fa-tag"></i> {selectedNews.category_name}
                 </NewsCategory>
@@ -129,12 +141,14 @@ const AllLatestNews = () => {
                   className="btn btn-success btn-sm mt-3 mb-3 text-white"
                   style={{ float: "right" }}
                 >
-                  <i className="fa fa-home"></i> Go Home
+                  <i className="fa fa-home"></i> Go Back
                 </Link>
               </NewsDetails>
             </div>
           </div>
         </div>
+      ) : (
+        <NoData>No Lastest News found</NoData>
       )}
     </Container>
   );

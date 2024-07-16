@@ -75,7 +75,7 @@
   transition: all 0.3s ease;
 }
 
-.nav-pills>li.category-link.active::after {
+/* .nav-pills>li.category-link.active::after {
   position: absolute;
   bottom: -39px;
   height: 0;
@@ -85,7 +85,7 @@
   border: 20px solid transparent;
   border-bottom-color: #02c386;
   content: "";
-}
+} */
 
 a {
   color: #333333;

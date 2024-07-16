@@ -170,7 +170,7 @@ function Footer({footerdata}) {
             <div style={{ marginBottom: "-17px" }}>
               <p
                 className="text-center"
-                style={{ fontSize: "14px", color: "white", marginTop:"10px"  }}
+                style={{ fontSize: "12px", color: "white", marginTop:"10px"  }}
               >
                 Copyright © {currentYear} Diocese of Kurnool, All
                 rights reserved. Powered by

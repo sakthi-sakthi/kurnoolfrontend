@@ -4,6 +4,7 @@ import { ApiUrl } from "../components/API/Api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import "./css/youtube.css";
+import { Link } from "react-router-dom";
 
 const Youtube = () => {
   const [newsletterdata, setNewsletterdata] = useState([]);
@@ -105,7 +106,7 @@ const Youtube = () => {
               </div>
             </div>
           ) : (
-            <div className="newsletter mb-5">
+            <div className="newsletter mb-4">
               {newsletterdata && newsletterdata.length > 0 ? (
                 newsletterdata?.map((newsletter) => (
                   <div
@@ -145,6 +146,18 @@ const Youtube = () => {
               )}
             </div>
           )}
+          <>
+            {newsletterdata.length >= 3 && (
+              <center>
+                <Link
+                  to={"/newsletter"}
+                  className="btn btn-sm btn-success mr-2 text-white"
+                >
+                  View More
+                </Link>
+              </center>
+            )}
+          </>
         </div>
       </div>
     </div>
