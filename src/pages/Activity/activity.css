@@ -1,16 +1,16 @@
-.card-01 {
-  height: 400px;
+.act-01 {
+  height: 430px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 @media (max-width: 768px) {
-  .card-img-top {
+  .act-img-top {
     height: 200px !important;
   }
 
-  .card-01 {
+  .act-01 {
     height: 410px;
     display: flex;
     flex-direction: column;
@@ -18,22 +18,17 @@
   }
 }
 
-.card-img-top {
-  height: 170px !important;
+.act-img-top {
+  height: 200px !important;
 }
 
-.card-title {
-  height: 37px;
-  overflow: hidden;
-  font-size: 15px;
-  text-overflow: ellipsis;
+.act-title {
+  height: 35px !important;
+  font-size: 14px;
   text-decoration: none !important;
 }
 
-.card-text {
-  flex-grow: 1;
-  height: 45px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.act-text {
+  height: 35px !important;
   font-size: 14px;
 }

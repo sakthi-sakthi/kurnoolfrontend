@@ -40,17 +40,17 @@ const Activities = () => {
                     ) : (
                         latestNews?.map((newsItem, index) => (
                             <div className="col-md-4" key={index} id="latestnews">
-                                <div className="card card-02">
+                                <div className="act act-02">
                                     <img
-                                        className="card-img-top"
+                                        className="act-img-top"
                                         src={newsItem?.media_url || "images/all-img/noimage.jpg"}
                                         alt="No Data"
                                     />
-                                    <div className="card-body">
+                                    <div className="act-body">
                                         <i className="fa fa-calendar mr-1 fa-1x" /> {newsItem?.eventdate || "Date not available"}
                                         <br />
                                         <br />
-                                        <h4 className="card-title"><Link to={`/all-activity?activityid=${encodeURIComponent(btoa(newsItem.id))}`}>{newsItem?.title || "Title not available"}</Link></h4>
+                                        <h4 className="act-title"><Link to={`/all-activity?activityid=${encodeURIComponent(btoa(newsItem.id))}`}>{newsItem?.title || "Title not available"}</Link></h4>
                                         <Link to={`/all-activity?activityid=${encodeURIComponent(btoa(newsItem.id))}`} className="btn btn-primary" id='btnmore'>
                                             View More
                                         </Link>

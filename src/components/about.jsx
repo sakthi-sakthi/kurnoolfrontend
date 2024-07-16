@@ -15,7 +15,23 @@ function About() {
                   </h2>
                 </header>
                 <div className="entry-content mt-2">
-                  The Indian history Christianity reveals that Rayalaseema is the cradle of Catholicism in Andhra Pradesh. The two districts of this region Anantapur and kurnool witness or gave birth to Catholicism in Krishnapuram and Onteddupalle, Polur and Cowlur respectively. The Karnatic Jesuit missionaries sowed the seeds of Christianity in these villages from 1700. They also contributed extensively to Telugu Christian literature. It is recorded that the 1st person accepted Christ in Andhra Pradesh was Rangappa of Sale Caste. Later in 1718 Thumma Rayaappa Reddy was baptized by Fr. LeeGac. As the Holy relics of the Carnatic mission today, we have three tombs of Jesuit missionaries in Krshnapuram.
+                  The Diocese of Kurnool originated from the bigger diocese of
+                  Nellore on the 12th of June 1967 with Rev. Msgr. Joseph
+                  Rajappa as its first bishop. It covers the Kurnool, Nandyal,
+                  Sathysai, and Anantapur districts. Jesuits laid the foundation
+                  of the Catholic faith in this region in 1700s. After their
+                  suppression, evangelization, and community works were adhered
+                  to by MEP and Mill Hill missionaries and other missionaries
+                  who helped spread Catholicism and support the community.
+                  Successive bishops and administrators from 1967 to the
+                  present, including Rev. Msgr. Joseph Rajappa, Cherian Kunnel,
+                  Aruliah, Bishop Johannes Sr., Msgr. Chowrappa and Rev. Msgr.
+                  Anthony Poola, bolstered faith and action in the diocese by
+                  establishing new parishes, schools, and community centers and
+                  initiating welfare programs for the poor and marginalized. The
+                  leadership of late Bishop Johannes Sr., and later Rev. Msgr.
+                  Anthony Poola, saw the diocese grow in education and social
+                  welfare.
                 </div>
                 <center>
                   <Link to="/aboutus">

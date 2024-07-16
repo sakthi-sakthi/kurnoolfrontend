@@ -86,7 +86,7 @@ const GalleryImages = () => {
       {loading ? (
         <div className="mt-2 mb-3">Loading...</div>
       ) : categories.length === 0 ? (
-        <div className="mt-2 mb-3">No gallery images available.</div>
+        <div className="mt-2 mb-3">No gallery images available</div>
       ) : (
         <div className="row">
           {categories?.map((category, catIndex) => (

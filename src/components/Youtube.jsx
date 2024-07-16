@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ApiUrl } from "../components/API/Api";
-import './css/youtube.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import "./css/youtube.css";
 
 const Youtube = () => {
   const [newsletterdata, setNewsletterdata] = useState([]);
@@ -78,11 +80,7 @@ const Youtube = () => {
                 />
               </video>
               <div className="play-button-wrapper">
-                <div
-                  title="Play video"
-                  className="play-gif"
-                  id="circle-play-b"
-                >
+                <div title="Play video" className="play-gif" id="circle-play-b">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
                     <path d="M40 0a40 40 0 1040 40A40 40 0 0040 0zM26 61.56V18.44L64 40z" />
                   </svg>
@@ -96,8 +94,15 @@ const Youtube = () => {
             <h2 className="entry-title mt-3">Monthly Newsletter</h2>
           </div>
           {loading ? (
-            <div className="d-flex">
-              <div className="mt-2 mb-3">Loading...</div>
+            <div
+              className="d-flex justify-content-center align-items-center"
+              style={{ height: "200px" }}
+            >
+              <div className="spinner-border text-primary" role="status">
+                <span className="sr-only text-center">
+                  <FontAwesomeIcon icon={faSpinner} spin size="2x" />
+                </span>
+              </div>
             </div>
           ) : (
             <div className="newsletter mb-5">
@@ -116,11 +121,11 @@ const Youtube = () => {
                           className="mb-5"
                           style={{ width: "50px" }}
                         />
-                        <div className="text-center">
+                        <div className="text-center mb-4">
                           <h5 className="card-title mb-2">
                             {newsletter?.title}
                           </h5>
-                          <p className="card-text mb-1">
+                          <p className="card-text mb-3">
                             {newsletter?.eventdate}
                           </p>
                         </div>
@@ -142,9 +147,8 @@ const Youtube = () => {
           )}
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
 export default Youtube;
-
