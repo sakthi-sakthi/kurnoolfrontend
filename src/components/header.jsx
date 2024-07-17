@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Collapse } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
-import './css/styles.css';
+import React, { useState } from "react";
+import { Collapse } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import "./css/styles.css";
 
 const Header = ({ menudata }) => {
   const location = useLocation();
@@ -18,7 +18,6 @@ const Header = ({ menudata }) => {
   const handleSubMenuClick = (index) => {
     setActiveSubMenu(activeSubMenu === index ? null : index);
   };
-
 
   return (
     <>
@@ -55,34 +54,25 @@ const Header = ({ menudata }) => {
               <div className="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
                 <div className="social-icons">
                   <div className="social-icon">
-                    <a
-                      href="/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <a href="/" target="_blank" rel="noreferrer">
                       <i className="fab fa-facebook" />
                     </a>
                   </div>
                   <div className="social-icon">
-                    <a
-                      href="/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <a href="/" target="_blank" rel="noreferrer">
                       <i className="fab fa-youtube" />
                     </a>
                   </div>
                   <div className="social-icon">
-                    <a
-                      href="/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <a href="/" target="_blank" rel="noreferrer">
                       <i className="fab fa-instagram" />
                     </a>
                   </div>
                 </div>
-                <button className="btn btn-success btn-sm donate-btn ml-3" id='btnmore'>
+                <button
+                  className="btn btn-success btn-sm donate-btn ml-3"
+                  id="btnmore"
+                >
                   <i className="fas fa-donate"></i> Donation
                 </button>
               </div>
@@ -98,11 +88,13 @@ const Header = ({ menudata }) => {
             />
           </div>
           <div className="container-fluid col-xs-12 col-sm-12 col-md-12 p-0 d-lg-none">
-            <img
-              src="images/all-img/mainmobile.jpg"
-              alt="Banner"
-              className="w-100"
-            />
+            <a href="/" className="d-block">
+              <img
+                src="images/all-img/mainmobile.jpg"
+                alt="Banner"
+                className="w-100"
+              />
+            </a>
           </div>
         </section>
         <div className="main-navigation-container d-none d-lg-block">
@@ -127,32 +119,62 @@ const Header = ({ menudata }) => {
             >
               <ul className="main-navigation">
                 {menudata?.map((menuItem, index) => (
-                  <li key={index} className={menuItem.children ? 'menu-item-has-children' : 'menu-item'}>
+                  <li
+                    key={index}
+                    className={
+                      menuItem.children ? "menu-item-has-children" : "menu-item"
+                    }
+                  >
                     {menuItem.children ? (
-                      <Link to={menuItem.url} className={`${menuItem.children.some(child => url.includes(child.url)) ? "activemain" : ""}`}>
+                      <Link
+                        to={menuItem.url}
+                        className={`${
+                          menuItem.children.some((child) =>
+                            url.includes(child.url)
+                          )
+                            ? "activemain"
+                            : ""
+                        }`}
+                      >
                         {menuItem.label}
                       </Link>
                     ) : (
-                      <Link to={menuItem.url} className={`${url === menuItem.url ? "activemain" : ""}`} style={{ whiteSpace: 'nowrap' }} >
+                      <Link
+                        to={menuItem.url}
+                        className={`${
+                          url === menuItem.url ? "activemain" : ""
+                        }`}
+                        style={{ whiteSpace: "nowrap" }}
+                      >
                         {menuItem.label}
                       </Link>
                     )}
                     {menuItem.children && (
                       <ul className="sub-menu">
                         {menuItem.children?.map((subItem, subIndex) => (
-                          <li key={subIndex} className={subItem.subchildren ? 'menu-item-has-children' : 'menu-item'}>
-                            <Link to={subItem.url}>
-                              {subItem.label}
-                            </Link>
+                          <li
+                            key={subIndex}
+                            className={
+                              subItem.subchildren
+                                ? "menu-item-has-children"
+                                : "menu-item"
+                            }
+                          >
+                            <Link to={subItem.url}>{subItem.label}</Link>
                             {subItem.subchildren && (
                               <ul className="sub-menu">
-                                {subItem.subchildren.map((childSubItem, childSubIndex) => (
-                                  <li key={childSubIndex} className="menu-item">
-                                    <Link to={childSubItem.url}>
-                                      {childSubItem.label}
-                                    </Link>
-                                  </li>
-                                ))}
+                                {subItem.subchildren.map(
+                                  (childSubItem, childSubIndex) => (
+                                    <li
+                                      key={childSubIndex}
+                                      className="menu-item"
+                                    >
+                                      <Link to={childSubItem.url}>
+                                        {childSubItem.label}
+                                      </Link>
+                                    </li>
+                                  )
+                                )}
                               </ul>
                             )}
                           </li>
@@ -178,49 +200,170 @@ const Header = ({ menudata }) => {
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasScrolling"
           aria-controls="offcanvasScrolling"
-          style={{ background: "#f6c93f" }}
+          style={{ background: "#f6c93f", fontSize: "11px" }}
         >
           <i className="fa fa-bars"></i>
         </button>
-        <div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabIndex={-1} id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div
+          className="offcanvas offcanvas-start"
+          data-bs-scroll="true"
+          data-bs-backdrop="false"
+          tabIndex={-1}
+          id="offcanvasScrolling"
+          aria-labelledby="offcanvasScrollingLabel"
+        >
           <div className="offcanvas-header">
             <h5 className="text-center">Diocese of Kurnool - Andhra Pradesh</h5>
-            <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button
+              type="button"
+              className="btn-close text-reset"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
           </div>
           <div className="offcanvas-body">
             <div className="nav-bar">
-              <ul style={{ listStyleType: 'none', padding: 0 }}>
+              <ul style={{ listStyleType: "none", padding: 0 }}>
                 {menudata?.map((menuItem, index) => (
-                  <li key={index} className={menuItem.children ? 'menu-item-has-children' : 'menu-item'} style={{ display: 'block', position: 'relative' }}>
-                    {menuItem.children ? (
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <img src='images/all-img/tick.png' style={{ width: '13px', height: '13px', marginRight: '5px' }} alt='tick'/>
-                        <a href={() => false} onClick={() => handleMenuClick(index)} style={{ display: 'block', padding: '10px', textDecoration: 'none', color: 'black' }}>{menuItem.label}</a>
-                      </div>
-                    ) : (
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <img src='images/all-img/tick.png' style={{ width: '13px', height: '13px', marginRight: '5px' }} alt='tick'/>
-                        <a href={menuItem.url} style={{ display: 'block', padding: '10px', textDecoration: 'none', color: 'black' }}>{menuItem.label}</a>
-                      </div>
-                    )}
+                  <li
+                    key={index}
+                    className={
+                      menuItem.children ? "menu-item-has-children" : "menu-item"
+                    }
+                    style={{ display: "block", position: "relative" }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      <img
+                        src="images/all-img/tick.png"
+                        style={{
+                          width: "13px",
+                          height: "13px",
+                          marginRight: "5px",
+                        }}
+                        alt="tick"
+                      />
+                      <a
+                        href={menuItem.children ? () => false : menuItem.url}
+                        onClick={
+                          menuItem.children
+                            ? () => handleMenuClick(index)
+                            : undefined
+                        }
+                        style={{
+                          display: "block",
+                          padding: "10px",
+                          textDecoration: "none",
+                          color: "black",
+                        }}
+                      >
+                        {menuItem.label}
+                        {menuItem.children && (
+                          <i
+                            className="fa fa-caret-down"
+                            style={{ marginLeft: "5px" }}
+                          />
+                        )}
+                      </a>
+                    </div>
                     {menuItem.children && (
                       <Collapse in={activeMenu === index}>
-                        <ul className="sub-menu" style={{ listStyleType: 'none', padding: 0, position: 'absolute', top: '100%', left: '0', zIndex: 1, backgroundColor: 'lightgray', borderRadius: '5px', boxShadow: '0 2px 5px rgba(0,0,0,0.2)' }}>
+                        <ul
+                          className="sub-menu"
+                          style={{
+                            listStyleType: "none",
+                            padding: 0,
+                            position: "absolute",
+                            top: "100%",
+                            left: "0",
+                            zIndex: 1,
+                            backgroundColor: "lightgray",
+                            borderRadius: "5px",
+                            boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+                          }}
+                        >
                           {menuItem.children.map((subItem, subIndex) => (
-                            <li key={subIndex} className={subItem.subchildren ? 'menu-item-has-children' : 'menu-item'} style={{ display: 'block', position: 'relative' }}>
-                              {subItem.subchildren ? (
-                                <a href={() => false} onClick={(e) => { e.preventDefault(); handleSubMenuClick(subIndex); }} style={{ display: 'block', padding: '10px', textDecoration: 'none', color: 'black' }}>{subItem.label}</a>
-                              ) : (
-                                <a href={subItem.url} style={{ display: 'block', padding: '10px', textDecoration: 'none', color: 'black' }}>{subItem.label}</a>
-                              )}
+                            <li
+                              key={subIndex}
+                              className={
+                                subItem.subchildren
+                                  ? "menu-item-has-children"
+                                  : "menu-item"
+                              }
+                              style={{ display: "block", position: "relative" }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <a
+                                  href={
+                                    subItem.subchildren
+                                      ? () => false
+                                      : subItem.url
+                                  }
+                                  onClick={
+                                    subItem.subchildren
+                                      ? (e) => {
+                                          e.preventDefault();
+                                          handleSubMenuClick(subIndex);
+                                        }
+                                      : undefined
+                                  }
+                                  style={{
+                                    display: "block",
+                                    padding: "10px",
+                                    textDecoration: "none",
+                                    color: "black",
+                                  }}
+                                >
+                                  {subItem.label}
+                                  {subItem.subchildren && (
+                                    <i
+                                      className="fa fa-caret-down"
+                                      style={{ marginLeft: "5px" }}
+                                    />
+                                  )}
+                                </a>
+                              </div>
                               {subItem.subchildren && (
                                 <Collapse in={activeSubMenu === subIndex}>
-                                  <ul className="sub-menu" style={{ listStyleType: 'none', padding: 0, position: 'absolute', top: '0', left: '100%', zIndex: 1, backgroundColor: 'lightgray', borderRadius: '5px', boxShadow: '0 2px 5px rgba(0,0,0,0.2)' }}>
-                                    {subItem.subchildren.map((childSubItem, childSubIndex) => (
-                                      <li key={childSubIndex} className="menu-item" style={{ display: 'block' }}>
-                                        <a href={childSubItem.url} style={{ display: 'block', padding: '10px', textDecoration: 'none', color: 'black' }}>{childSubItem.label}</a>
-                                      </li>
-                                    ))}
+                                  <ul
+                                    className="sub-menu"
+                                    style={{
+                                      listStyleType: "none",
+                                      padding: 0,
+                                      position: "absolute",
+                                      top: "0",
+                                      left: "100%",
+                                      zIndex: 1,
+                                      backgroundColor: "lightgray",
+                                      borderRadius: "5px",
+                                      boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+                                    }}
+                                  >
+                                    {subItem.subchildren.map(
+                                      (childSubItem, childSubIndex) => (
+                                        <li
+                                          key={childSubIndex}
+                                          className="menu-item"
+                                          style={{ display: "block" }}
+                                        >
+                                          <a
+                                            href={childSubItem.url}
+                                            style={{
+                                              display: "block",
+                                              padding: "10px",
+                                              textDecoration: "none",
+                                              color: "black",
+                                            }}
+                                          >
+                                            {childSubItem.label}
+                                          </a>
+                                        </li>
+                                      )
+                                    )}
                                   </ul>
                                 </Collapse>
                               )}
@@ -232,9 +375,38 @@ const Header = ({ menudata }) => {
                   </li>
                 ))}
               </ul>
-              <div className="copyright" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginTop: '1rem', marginBottom: '1rem' }}>
-                <p className="text-center" style={{ fontSize: '13px', color: '#999' }}> &copy; {new Date().getFullYear()} Diocese of Kurnool</p>
-                <p className="text-center" style={{ fontSize: '13px', color: '#999' }}>Powered by <a href='https://boscosofttech.com/' target='_blank' rel="noopener noreferrer" style={{ color: '#666' }}>BoscoSoft Technologies</a></p>
+              <div
+                className="copyright"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexDirection: "column",
+                  marginTop: "1rem",
+                  marginBottom: "1rem",
+                }}
+              >
+                <p
+                  className="text-center"
+                  style={{ fontSize: "13px", color: "#999" }}
+                >
+                  {" "}
+                  &copy; {new Date().getFullYear()} Diocese of Kurnool
+                </p>
+                <p
+                  className="text-center"
+                  style={{ fontSize: "13px", color: "#999" }}
+                >
+                  Powered by{" "}
+                  <a
+                    href="https://boscosofttech.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#666" }}
+                  >
+                    BoscoSoft Technologies
+                  </a>
+                </p>
               </div>
             </div>
           </div>
@@ -242,6 +414,6 @@ const Header = ({ menudata }) => {
       </div>
     </>
   );
-}
+};
 
 export default Header;

@@ -179,7 +179,7 @@ ul:after {
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
   #btnmore {
-    font-size: 10px;
+    font-size: 8px;
     padding: 8px 8px;
   }
 }

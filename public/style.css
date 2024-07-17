@@ -748,6 +748,17 @@ a:active {
   z-index: 99;
 }
 
+
+@media (max-width: 768px) {
+  .home-page-welcome {
+    padding: 10px 0;
+    background: url("images/all-img/0D6A0128.JPG") no-repeat center;
+    background-size: cover;
+    z-index: 99;
+    position: relative;
+  }
+}
+
 .home-page-welcome::after {
   content: "";
   position: absolute;
@@ -2356,7 +2367,7 @@ div.main-tile-text h2 {
 
 /* Style for the social media icons */
 .social-icon i {
-  font-size: 19px;
+  font-size: 15px;
   /* Adjust the size of the icons as needed */
   color: #fff;
   /* Adjust the default color of the icons */
@@ -3135,15 +3146,15 @@ div.main-tile-text h2 {
     display: block;
     margin: 5px auto;
     padding: 5px 5px;
-    font-size: 16px !important;
-    height: 50px;
+    font-size: 11px !important;
+    height: 25px;
     text-align: center;
     background: #d6002a;
     color: #fff;
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 9px;
-    margin-top: 2px;
+    margin-top: 11px;
     border-radius: 4px;
   }
 }
@@ -3303,40 +3314,33 @@ div.main-tile-text h2 {
 
 @media (max-width: 768px) {
   .welcome-content .entry-title {
-    font-size: 25px;
+    font-size: 22px;
   }
 }
 
 @media (max-width: 768px) {
   .welcome-content .entry-content {
-    font-size: 18px;
-    /* Adjust font size for smaller screens */
-    padding: 10px;
-    /* Adjust padding */
+    font-size: 15px;
   }
 }
 
 /* Original styles for larger screens */
 #sp-section-2 {
   background-color: #f8f8f8;
-  /* Add your original background color */
 }
 
 .main-tile-text h1 {
   font-size: 36px;
-  /* Adjust the font size for smaller screens */
 }
 
 .main-tile-text h2 {
   font-size: 18px;
-  /* Adjust the font size for smaller screens */
 }
 
 /* Responsive styles for smaller screens */
 @media (max-width: 768px) {
   #sp-section-2 {
     padding: 20px 0;
-    /* Adjust padding for smaller screens */
   }
 
   #sp-right-logo {
@@ -4454,9 +4458,7 @@ li ul {
 
 .rs-services.style16 .services-wrap .services-txt .services-title {
   font-size: 17px;
-  line-height: 36px;
   font-weight: 600;
-  margin-bottom: 14px;
 }
 
 .rs-services.style16 .services-wrap .services-txt .services-title a {
