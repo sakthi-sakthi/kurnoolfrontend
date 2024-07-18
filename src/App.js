@@ -30,6 +30,7 @@ import EducationCommission from "./pages/TheDiocese/EducationCommission";
 import PastoralCommission from "./pages/TheDiocese/PastoralCommission";
 import SocialServiceCommission from "./pages/TheDiocese/SocialServiceCommission";
 import YouthCommission from "./pages/TheDiocese/YouthCommission";
+import Priests from "./pages/AboutUs/Priests";
 
 
 
@@ -53,6 +54,7 @@ function App() {
             <Route path="birthday-calendar" element={<BriefHistory />} />
             <Route path="ordination-calendar" element={<BriefHistory />} />
             <Route path="necrology" element={<BriefHistory />} />
+            <Route path="priests" element={<Priests />} />
             {/* The Diocese Page Routing */}
             <Route path="parishes" element={<Commission />} />
             <Route path="pastoral-commission" element={<PastoralCommission />} />

@@ -71,11 +71,11 @@ const Youtube = () => {
                 loop
                 id="video"
                 preload="metadata"
-                poster="images/all-img/slider24 (2).jpeg"
+                // poster="images/all-img/slider24 (2).jpeg"
                 className="video"
               >
                 <source
-                  src="videos/kurnool.mp4"
+                  src="videos/latestvideo.mp4"
                   type="video/mp4"
                   id="video-source"
                 />

@@ -88,12 +88,6 @@ const News = () => {
                     <div className="col-md-9">
                       <div>
                         <Title style={{ fontWeight: "bold" }}>
-                          <img
-                            src="images/all-img/tick.png"
-                            className="mr-2"
-                            style={{ width: "20px", height: "20px" }}
-                            alt="logo"
-                          />
                           {event?.title}
                         </Title>
                         <Date style={{ fontWeight: "bold" }}>

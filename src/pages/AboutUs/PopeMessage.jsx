@@ -15,7 +15,8 @@ const MessageContainer = styled.div`
 
 const MessageContent = styled.p`
   color: #444;
-  font-size: 17px;
+  text-align: justify;
+  font-size: 15px;
   line-height: 1.6;
 `;
 

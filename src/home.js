@@ -22,21 +22,7 @@ function Home() {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${ApiUrl}/get/homepagee/sections`);
-        const data = response?.data?.data;
-        const storedHomedata = sessionStorage.getItem('homedata');
-        
-        if (storedHomedata) {
-          const parsedStoredData = JSON.parse(storedHomedata);
-          if (JSON.stringify(data) !== JSON.stringify(parsedStoredData)) {
-            setHomedata(data);
-            sessionStorage.setItem('homedata', JSON.stringify(data));
-          } else {
-            setHomedata(parsedStoredData);
-          }
-        } else {
-          setHomedata(data);
-          sessionStorage.setItem('homedata', JSON.stringify(data));
-        }
+        setHomedata(response?.data?.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {

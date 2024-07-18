@@ -116,11 +116,11 @@ const BishopProgram = () => {
                 </div>
             </div>
 
-            <h2 className="text-center mt-3 mb-4">Bishop's Monthly Program</h2>
+            <h3 className="text-center mt-3 mb-4">Bishop's Monthly Program</h3>
 
             {sortedProgramMonths?.map((month) => (
                 <div key={month}>
-                    <h3 className="text-center mt-3 mb-4">{month}</h3>
+                    <h4 className="text-center mt-3 mb-4">{month}</h4>
                     <table className="table table-striped table-bordered table-hover mt-3 mb-5">
                         <thead className="thead-dark">
                             <tr>

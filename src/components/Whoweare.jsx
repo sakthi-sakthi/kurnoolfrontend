@@ -207,13 +207,13 @@ const Whoweare = () => {
 
                                                                 <dt><i className="fa fa-book"></i> Studies:</dt>
                                                                 <dd>
-                                                                    <img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} /> BA Philosophy (Gold Medal in MG University, Kerala)
+                                                                    <li>BA Philosophy (Gold Medal in MG University, Kerala)</li>
                                                                     <br />
-                                                                    <img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} /> B. Th from Teresianum, Rome
+                                                                    <li>B. Th from Teresianum, Rome</li>
                                                                     <br />
-                                                                    <img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} /> Licentiate in Sacred Scripture SSL from Biblicum, Rome.
+                                                                    <li>Licentiate in Sacred Scripture SSL from Biblicum, Rome.</li>
                                                                     <br />
-                                                                    <img src="images/all-img/tick.png" alt="" style={{ marginRight: '10px', width: '20px', height: '20px' }} /> Doctorate in Biblical Theology STD from the Gregorian University, Rome.
+                                                                    <li>Doctorate in Biblical Theology STD from the Gregorian University, Rome.</li>
                                                                 </dd>
                                                             </dl>
                                                         </div>
