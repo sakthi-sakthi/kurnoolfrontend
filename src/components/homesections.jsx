@@ -12,7 +12,7 @@ const HomeSections = () => {
                     </div>
                     <div className="row">
                         {[
-                            { src: "images/all-img/3.png", alt: "Priests", link: "/religious-priest", label: "Priests" },
+                            { src: "images/all-img/3.png", alt: "Priests", link: "/priests", label: "Priests" },
                             { src: "images/all-img/shrine.webp", alt: "Parishes", link: "/parishes", label: "Parishes" },
                             { src: "images/all-img/education.webp", alt: "Educational", link: "/", label: "Educational" },
                             { src: "images/all-img/social.png", alt: "Social", link: "/", label: "Social" },
